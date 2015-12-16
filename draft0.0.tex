@@ -1,0 +1,155 @@
+\documentclass[useAMS,usenatbib]{mn2e}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{mn2e}
+\usepackage{times}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{color,soul}
+
+\newcommand \kpc        {\,{\rm kpc}}
+\newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }} $\ }
+\newcommand \sigmatotalgas {$\Sigma_{\rm \bld {total\, gas }} $\ }
+\newcommand \eqsigmagas    {\Sigma_{\rm \bld {gas }}}
+\newcommand \sigmasfr     {$\Sigma_{\rm \bld {SFR }} $\ }
+\newcommand \eqsigmasfr     {\Sigma_{\rm \bld {SFR }}}
+\newcommand \sigmastar    {$\Sigma_{\rm \bld {star }} $\ }
+\newcommand \eqsigmastar    {\Sigma_{\rm \bld {star }}}
+\newcommand \halpha    {H$\alpha $\ }
+\newcommand \um    {$\mu$m\ }
+\newcommand \mice {$\mu$m}
+\newcommand \nprime {N$^\prime$}
+\newcommand \eqnprime {N^\prime}
+\newcommand \Spitzer {{\it Spitzer }}
+\newcommand \Galex {GALEX }
+\newcommand \Herschel {{\it Herschel }}
+\newcommand \aaj {A\&A}
+\newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
+\newcommand \aas{A\&AS}%: Astronomy and Astrophysics Supplement Series
+\newcommand \afz {Afz}%: Astrofizika
+\newcommand \aj {AJ}%: Astronomical Journal (the)
+\newcommand \apss {Ap\&SS}%: Astrophysics and Space Science
+\newcommand \apj {ApJ}
+\newcommand \apjs {ApJS}%: Astrophysical Journal Supplement Series (the)
+\newcommand \araa {ARA\&A} %: Annual Review of Astronomy and Astrophysics
+\newcommand \asp {ASP Conf. Ser.}%: Astronomy Society of the Pacific Conference Series
+\newcommand \azh {Azh}%: Astronomicheskij Zhurnal
+\newcommand \baas {BAAS}%: Bulletin of the American Astronomical Society
+\newcommand \mem {Mem. RAS}%: Memoirs of the Royal Astronomical Society
+\newcommand \mnassa {MNASSA}%: Monthly Notes of the Astronomical Society of Southern Africa
+\newcommand \mnras {MNRAS} %: Monthly Notices of the Royal Astronomical Society
+%\newcommand {Nature}%(do not abbreviate)
+\newcommand \pasj {PASJ}%: Publications of the Astronomical Society of Japan
+\newcommand \pasp {PASP}%: Publications of the Astronomical Society of the Pacific
+\newcommand \qjras {QJRAS}%: Quarterly Journal of the Royal Astronomical Society
+\newcommand \mex {Rev. Mex. Astron. Astrofis.}%: Revista Mexicana de Astronomia y Astrofisica
+%\newcommand {Science }%}%(do not abbreviate)
+\newcommand \sva {SvA}%: Soviet Astronomy
+\newcommand \aap {APP} %:American Academy of Pediatrics
+\newcommand \apjl {ApJL} %:The Astrophysical Journal Letters
+
+\begin{document}
+% TITLE
+
+\title{Data Mining in nearby galaxies}
+\author{rahmani.sahar }
+\date{August 2015}
+\author[S. Rahmani, et. al.]{S.~Rahmani$^{1}$\thanks{E-mail:
+srahma49@uwo.ca}, H.~Teimoorinia$^{2}$, P.~Barmby$^{1}$\\
+$^{1}$Department of Physics $\&$ Astronomy, Western University, London, ON N6A 3K7, Canada\\
+$^{2}$Department of Physics $\&$ Astronomy, University of Victoria, Finnerty Road, Victoria, British Columbia, V8P 1A1, Canada}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\begin{abstract} 
+%This is just first abstract for this paper!
+%M31 was targeted by many probes, and there are variety of data available for this particular galaxy.
+%M31 was mapped from X-ray to 21 cm emission. Also, spectroscopy data of different regions of M31 is available in various bands. 
+%The vast availability of data for this galaxy makes it a suitable target for data mining and ﬁnding new patterns in this galaxy.
+%In this project we are studying 10 regions in M31 from the bulge of the galaxy to the star forming ring. Using self organizing map (SOM) method, we classiﬁed these regions in different groups, based on total star formation rate, total stellar mass, total infrared emission and 3.6 \mice, 4.5 \mice, 5.8 \mice, 8 \mice, 24 \mice, 70 \um and 160 \mice, 2.6 mm, and 21 cm luminosity from the photometry data of the regions, and flux of 5.7 \mice, 6.2 \mice, 7.4 \mice, 7.6 \mice, 7.9\mice, 8.3 \mice, 8.6 \mice, 10.7 \mice, 11.23 \mice, 12.00 \mice, 12.62 \mice, 12.69 \mice, 14.0 \mice, 16.45 \mice, 17.04 \mice, PAH lines, [ArIII], [SIII], [SIV], [NeII], and [NeIII] as well as metallicity of these regions obtained from the spectroscopy data. 
+%We divided these regions from 2 to 6 different classes, and for each class we are going to interpret results and check whether these classiﬁcations have a physical meaning or they are just statistically relate to each other. 
+%As a result, we can predict some properties of regions in other galaxies by having only few data.
+
+\end{abstract}
+\begin{keywords} 
+galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies: stellar content, galaxies: ISM, stars: formation, ISM: clouds, methods: observational, methods: statistical, data mining, methods:data analysis, techniques: image processing 
+\end{keywords}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{Introduction}
+% ideas about science of paper will add the them at the end
+
+% maybe a little bit about PAH and other properties of nearby galaxies
+
+% data mining in general?ANN?
+
+
+
+
+\section{DATA}
+Our sample contains photometric and spectroscopic data of M31 and M101, as well as their measured properties such as SFR, stellar mass, dust luminosity, metallicity, and gas mass.   
+%M31 data: observed ones;
+
+%M31 data: measured ones;
+%M101 data: observed ones;
+
+
+\section{METHOD}
+ \subsection{Self Organizing Maps}
+ 
+ Kohonen Self organizing map (or self organizing map, SOM) is an unsupervised neural network for mapping and visualizing a complex and non linear high dimension data introduced by \citep{Kohonen82}. 
+ SOM is a clustering method which reduces the dimension of data to lower dimensions usually 1 or 2D while preserving topological features of the original data.
+ Results of SOM contains nodes (usually hexagonal ones) that arranged in 1D or 2D arrays.
+ Each nodes may contain one or more samples from input data and distance between nodes represents similarity or dissimilarity of underlying samples. 
+ In the way that similar data are closer together in the array and further nodes go, they become more different.
+ %Sahar_self_notes: maybe "some" is better instead of one or more
+ Also, a weight vector ``$w$" with same dimension of the input data associates with each node.
+ Thus the SOM is a technique that shows a simple geometry relationship of a non-linear high dimension data on a map \citep{Kohonen98}. 
+   \subsubsection{Algorithm of SOM} 
+   
+ Having a data which contains vectors, $V \in \Re^n$. Therefore, each node contains a weight vectors $w\in \Re^n$. The process of creating SOM, happens over series of $N$ iterations. For each iteration :
+   
+  1) assigning a random weight vector
+  
+  2) from the data a vector will be choose randomly and present to a network
+  
+  3) calculating the Euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - w_i)^2 $ to find the smallest value for "$D_{j_{min}}$". The winner node is calling Best Matching Unit (BMU)
+  
+  4) Compute the radius of the neighbourhood of the BMU to find nodes that all are within the neighbourhood distance of the BMU. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary but initially can be chosen to be half of the size of the SOM and then it decades exponentially over the time:
+  %Sahar_self_note: or Whatever matlab prefers
+   \begin{equation}
+   r(t) = r^0_{BMU}e^{(-t/\tau)}
+   \end{equation}
+   where $\tau$ is a decay constant and usually set to be the same as number of iterations, $N$.
+   
+   5) The weight vector of every nodes within the neighbourhood will be adjusted as:
+   \begin{equation}
+   w(t+1)=w(t)+L(t) \times(v(t)-w(t))
+   \end{equation}
+   where $L(t) = e^{(-t/\tau}$ is the learning factor which decrease with time.
+   
+   6) Repeat these steps for $N$ times.
+   
+   
+   
+ \subsection{Test Model}
+
+\section{RESULTS}
+   \subsection{SOM of M31}
+   \subsection{SOM of M101}
+   \subsection{SOM of M31 and M101}
+\section{DISCUSSION}
+
+\section{SUMMARY}
+
+\bibliographystyle{mnras}
+\bibliography{ref_mining}
+
+\section*{ACKNOWLEDGMENTS}
+S.R and P.B acknowledge research support from the Natural Sciences and Engineering Research Council of Canada and from the Academic Development Fund of the University of Western Ontario.
+\end{document}
