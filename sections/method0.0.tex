@@ -7,11 +7,13 @@
 %----------------------------------------------------------------------------------------
 
 \section{METHOD}
+\label{sec: method}
  \subsection{Self Organizing Maps}
+ \label{sec: som}
  
  Kohonen Self organizing map (or self organizing map, SOM) is an unsupervised neural network for mapping and visualizing a complex and non linear high dimension data introduced by~\citep{Kohonen82}. 
  The SOM is a technique that shows a simple geometry relationship of a non-linear high dimension data on a map \citep{Kohonen98}.
- SOM is a clustering method which reduces the dimension of data to lower dimensions usually 1 or 2D while preserving topological features of the original data.
+ The SOM is a clustering method which reduces the dimension of data to lower dimensions usually 1 or 2D while preserving topological features of the original data.
  Results of SOM contains nodes (usually hexagonal ones) that arranged in 1D or 2D arrays.
  
   
@@ -21,37 +23,40 @@
  Moreover,a weight vector ``\boldit{W}" with same dimension of the input data associates with each node which will be change during the process and has a key factor in a position of nodes in the map. 
  
  \subsubsection{Algorithm of SOM} 
+ \label{sec: algorithm}
 
-     Assuming we have a data which contains vectors, \boldit{V} $\in \Re^n$. Each nodes must contain a weight vector \boldit{W} $\in \Re^n$; this weight vector will be assigned randomly to each node in the begging of the procedure and might change in each iteration. The process of creating SOM, happens over series of $N$ iterations. The number of iteration is provided by user. We test our code by varying the number of iterations and find $N = 100$ is optimized for our sample. For each iteration:
-   
-  1) assigning a random weight vector
-  
-  2) from the data a vector will be choose randomly and present to a network
-  
-  3) calculating the Euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - w_i)^2 $ to find the smallest value for "$D_{j_{min}}$". The winner node is calling Best Matching Unit (BMU)
-  
-  4) Compute the radius of the neighbourhood of the BMU to find nodes that all are within the neighbourhood distance of the BMU (maximum number of neighbourhood is given by the user). The weight vectors of these nodes will be affected in the next steps. This value is arbitrary but initially can be chosen to be half of the size of the SOM and then it decades exponentially over the time:
-  %Sahar_self_note: or Whatever matlab prefers
+     Assuming we have a data set which contains vectors, \boldit{V} $\in \Re^n$ and we want to map them on S1 by S2 map. 
+     We start by creating S1 $\times$ S2 empty neurons. 
+     The initial arrangement of these neurons depends on a map's topology provided by user.
+     Since the topology of the map does not have any affect on the final result, we chose hexagonal topology which is the default topology for SOMs.
+     Then, we assign a random weight vector \boldit{W} $\in \Re^n$ to each node.
+     The process of creating SOM, happens over series of $N$ iterations. 
+     During each iteration the weight vectors might change according to the Kohonen learning rule (equation~\ref{equ: weight adj}). 
+     We test our code by varying the number of iterations and find $N = 100$ is optimized for our sample. For each iteration:
+     \begin{enumerate}
+     \item Choose a random vector from our data set.
+     \item Calculate the euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and find a neuron with ``$D_{j_{min}}$". This neuron is the winner node and is calling Best Matching Unit (BMU). 
+     \item  Compute the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary but initially can be chosen to be half of the size of the SOM and then it decades exponentially over each iteration:
    \begin{equation}
-   r(t) = r^0_{BMU}e^{(-t/\tau)}
+   r^t_{BMU} = r^0_{BMU}e^{(-t/\tau)}
    \end{equation}
-   where $\tau$ is a decay constant and usually set to be the same as number of iterations, $N$.
-   
-   5) The weight vector of every nodes within the neighbourhood will be adjusted as:
+   where $\tau$ is a decay constant and usually set to be the same as number of iterations, $N$. $r^0_{BMU}$ and $r^t_{BMU}$ is the radius of the neighbourhood at 0th and $t$th iteration, respectively. 
+   \item Change the weight vectors of the BMU and all the nodes within r(t) as:
    \begin{equation}
-   w(t+1)=w(t)+L(t) \times(v(t)-w(t))
+   \label{equ: weight adj}
+   w(t+1)=w(t)+L(t) \times R(t) \times(v(t)-w(t))
    \end{equation}
-   where $L(t) = e^{(-t/\tau}$ is the learning factor which decrease with time.
+   where $L(t) = e^{(-t/\tau)}$ is the learning factor which prevents divergence of the SOM and $R(t)=exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate. $R(t)$ determines how weight of nodes in the neighbourhood of BMU will change.
+   \item  Repeat these steps for $N$ times.
+    \end{enumerate}
    
-   6) Repeat these steps for $N$ times.
-   
-      
-In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep{sommatlab}.
+    In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep{sommatlab}. 
+    In Section~\ref{sec: test model} we used this toolbox to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
    
  \subsection{Test Model}
- Before we start using SOM on our data, we apply this model in a test sample. 
- Our test sample contains SED of 142 galaxies between redshift 0.5 $ \leq$ Z $\leq $ 1, which their physical information such as age, stellar mass and specific star formation are available. 
- \cite{Hossein12} used trained network to classified their spectrum based on SED models from \cite{Kinney96} and \cite{Coleman80}.
- 
- 
- We create various SOM maps with different numbers of neurons and neighbourhood 
+ \label{sec: test model}
+    Before we start using SOM on our data, we apply this model in a test sample. 
+    Our test sample contains SED of 142 galaxies between redshift 0.5 $ \leq$ Z $\leq $ 1, which their physical information such as age, stellar mass and specific star formation are available. 
+    \cite{Hossein12} used trained network to classified their spectrum based on SED models from \cite{Kinney96} and \cite{Coleman80}.
+    
+    We create various SOM maps with different numbers of neurons and neighbourhood 
