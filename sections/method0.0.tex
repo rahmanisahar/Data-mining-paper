@@ -32,11 +32,11 @@
      Then, we assign a random weight vector \boldit{W} $\in \Re^n$ to each node.
      The process of creating SOM, happens over series of $N$ iterations. 
      During each iteration the weight vectors might change according to the Kohonen learning rule (equation~\ref{equ: weight adj}). 
-     We test our code by varying the number of iterations and find $N = 100$ is optimized for our sample. For each iteration:
+      In each iteration:
      \begin{enumerate}
      \item Choose a random vector from our data set.
      \item Calculate the euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and find a neuron with ``$D_{j_{min}}$". This neuron is the winner node and is calling Best Matching Unit (BMU). 
-     \item  Compute the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary but initially can be chosen to be half of the size of the SOM and then it decades exponentially over each iteration:
+     \item  Compute the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary and initially can be set to be as high as half of the SOM size and then it decades exponentially over each iteration:
    \begin{equation}
    r^t_{BMU} = r^0_{BMU}e^{(-t/\tau)}
    \end{equation}
@@ -51,6 +51,8 @@
     \end{enumerate}
    
     In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep{sommatlab}. 
+    We created different SOM with different sizes, initial neighbourhood, and iteration numbers to find the optimize result for our sample.
+    We test our code by varying the number of iterations and find $N = 100$ is optimized for our sample.
     In Section~\ref{sec: test model} we used this toolbox to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
    
  \subsection{Test Model}
