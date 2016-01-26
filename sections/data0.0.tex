@@ -11,6 +11,9 @@
 %Our sample contains photometric and spectroscopic data of M31 and M101, as well as their measured properties such as SFR, stellar mass, dust luminosity, metallicity, and gas mass.    
 For creating SOM, we used spectroscopy and photometry data as well as their measured properties such as SFR, stellar mass, dust luminosity and mass, metallicity, and gas mass from 10 regions in M31 (Fig~\ref{fig: region in m31}) and 8 regions in M101 (Fig~\ref{fig: region in m101}).
 Table~\ref{tab: data} shows list of the sample and their unit for both M31 and M101.
+
+\import{../sections/tables/}{tab_data.tex}
+
 %M31 data 
 %%%%% Sahar: More detail?
     \subsection{M31 data}
@@ -25,11 +28,13 @@ Table~\ref{tab: data} shows list of the sample and their unit for both M31 and M
      For photometry part of the sample, we used data from \GALEX FUV and NUV channels~\citep{Martin05}, \halpha, [SII] continuum and [OIII} continuum emission~\citep{Massey07}, IRAC channels 1 to 4~\citep{Barmby06}, MIPS24 and 70~$\mu$m~\citep{Gordon06}, PACS100 and 160~$\mu$m and SPIRE250, 350, and 500~$\mu$m~\citep{Fritz12}.
      We changed units of all our data to Wm$^{-2}$ to be the same unit as PAH fluxes.
      We used $^{12}$CO (J:$1\rightarrow0$) line~\citep{Nieten06} and the atomic gas (H\,{\sc I}) 21~cm emission from \cite{Chemin09}.
-     We also utilized SFR(FUV + 24$\mu$m), stellar mass, total gas mass data from \cite{Rahmani16}, and dust luminosity and mass data from \cite{Draine14}.
+     We also utilized SFR(FUV + 24$\mu$m), stellar mass, total gas mass, and total infrared (TIR) emission data from \cite{Rahmani16}, and dust luminosity and mass data from \cite{Draine14}.
 
 
 %M101 data: observed ones;
     \subsection{M101 data}
      For M101 galaxy, we used PAH fluxes which had been measured using {\tiny PAHFIT IDL} tool and reported in \cite{Gordon08}. 
      We used data available on NED~\footnote{The NASA/IPAC Extragalactic Database (NED) is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.} website to gather our photometry data of M101. 
-     We chose data from \GALEX FUV and NUV channels~\citep{depaz07}, IRAC channels 1 to 4, MIPS24 and 70~$\mu$m~\cite{Dale09}, and  PACS100 and 160~$\mu$m and SPIRE250, 350, and 500~$\mu$m~\cite{Kennicutt11}. 
+     We chose data from \GALEX FUV and NUV channels~\citep{depaz07}, IRAC channels 1 to 4, MIPS24 and 70~$\mu$m~\cite{Dale09}, and  PACS100 and 160~$\mu$m and SPIRE250, 350, and 500~$\mu$m~\cite{Kennicutt11}.
+     Same as M31 data, we used $^{12}$CO (J:$1\rightarrow0$) line~\citep{Helfer03} and the atomic gas (H\,{\sc I}) 21~cm emission from \cite{Walter08} data.
+     For SFR, stellar and total gas map we used followed method described in \cite{Rahmani16} to create these maps.
