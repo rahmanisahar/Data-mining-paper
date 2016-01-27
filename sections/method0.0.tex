@@ -22,9 +22,10 @@
  %Sahar_self_notes: maybe "some" is better instead of one or more
  Moreover,a weight vector ``\boldit{W}" with same dimension of the input data associates with each node which will be change during the process and has a key factor in a position of nodes in the map. 
  
+ \cite{Geach12} presented the application of the SOM and demonstrate the algorithm of the SOM in detail. In this section we are going to talk briefly about the algorithm of the SOM, how we create our maps and a test model which will help to interpret our results.
+ 
  \subsubsection{Algorithm of SOM} 
  \label{sec: algorithm}
-
      Assuming we have a data set which contains vectors, \boldit{V} $\in \Re^n$ and we want to map them on S1 by S2 map. 
      We start by creating S1 $\times$ S2 empty neurons. 
      The initial arrangement of these neurons depends on a map's topology provided by user.
@@ -34,26 +35,36 @@
      During each iteration the weight vectors might change according to the Kohonen learning rule (equation~\ref{equ: weight adj}). 
       In each iteration:
      \begin{enumerate}
-     \item Choose a random vector from our data set.
-     \item Calculate the euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and find a neuron with ``$D_{j_{min}}$". This neuron is the winner node and is calling Best Matching Unit (BMU). 
-     \item  Compute the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary and initially can be set to be as high as half of the SOM size and then it decades exponentially over each iteration:
-   \begin{equation}
-   r^t_{BMU} = r^0_{BMU}e^{(-t/\tau)}
-   \end{equation}
-   where $\tau$ is a decay constant and usually set to be the same as number of iterations, $N$. $r^0_{BMU}$ and $r^t_{BMU}$ is the radius of the neighbourhood at 0th and $t$th iteration, respectively. 
-   \item Change the weight vectors of the BMU and all the nodes within r(t) as:
-   \begin{equation}
-   \label{equ: weight adj}
-   w(t+1)=w(t)+L(t) \times R(t) \times(v(t)-w(t))
-   \end{equation}
-   where $L(t) = e^{(-t/\tau)}$ is the learning factor which prevents divergence of the SOM and $R(t)=exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate. $R(t)$ determines how weight of nodes in the neighbourhood of BMU will change.
-   \item  Repeat these steps for $N$ times.
-    \end{enumerate}
+        \item Choose a random vector from our data set.
+        \item Calculate the euclidean distance for each node j as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and find a neuron with ``$D_{j_{min}}$". This neuron is the winner node and is calling Best Matching Unit (BMU). 
+        \item  Compute the radius of the neighbourhood of the BMU to find nodes within this radius. The weight vectors of these nodes will be affected in the next steps. This value is arbitrary and initially can be set to be as high as half of the SOM size and then it decades exponentially over each iteration:
+        \begin{equation}
+            r^t_{BMU} = r^0_{BMU}e^{(-t/\tau)}
+        \end{equation}
+        where $\tau$ is a decay constant and usually set to be the same as number of iterations, $N$. $r^0_{BMU}$ and $r^t_{BMU}$ is the radius of the neighbourhood at 0th and $t$th iteration, respectively. 
+        \item Change the weight vectors of the BMU and all the nodes within r(t) as:
+        \begin{equation}
+            \label{equ: weight adj}
+            w(t+1)=w(t)+L(t) \times R(t) \times(v(t)-w(t))
+        \end{equation}
+        where $L(t) = L_0 e^{(-t/\tau)}$ is the learning factor which prevents divergence of the SOM and $R(t)=exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate. $R(t)$ determines how weight of nodes in the neighbourhood of BMU will change.
+        \item  Repeat these steps for $N$ times.
+     \end{enumerate}
    
-    In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep{sommatlab}. 
-    We created different SOM with different sizes, initial neighbourhood, and iteration numbers to find the optimize result for our sample.
-    We test our code by varying the number of iterations and find $N = 100$ is optimized for our sample.
-    In Section~\ref{sec: test model} we used this toolbox to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
+     In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep[ NEWSOM,][]{matlabtolbox}.
+     {\tiny MATLAB} code, works in two phases. Phase one is the ``ordering phase". 
+     This phase starts with maximum neighbourhood distance (which is initially provided by user), and initial learning factor of 0.9 as a default values. 
+     The ordering phase continues for requested number of iterations and during that steps changes the parameters in the way that in the last iteration learning factor is 0.02 and the neighbourhood distance is 1.
+     
+     The second phase is the ``tuning phase".
+     In this phase the neighbourhood distance is at its minimum, but learning factor decreases very slowly.
+     This minimum neighbourhood distance and slowly decreasing the leaning factor helps to fine tune the topology results and causes the more stable SOM. 
+     The number of iterations in this tuning phase most be much more than the number iterations in ordering phase, to allow the tuning happens slowly. 
+     We chose number of epochs the tuning phase be 3 times more than number of epochs in the ordering phase.
+    
+     We created different SOM with different sizes, initial neighbourhood, and iteration numbers to find the optimize result for our sample.
+     We test our code by varying the number of iterations in ordering phase and find $N = 100$  is optimized for our sample.
+     In Section~\ref{sec: test model} we used this toolbox to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
    
  \subsection{Test Model}
  \label{sec: test model}
