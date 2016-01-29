@@ -51,9 +51,10 @@
         \item  Repeat these steps for $N$ times.
      \end{enumerate}
    
-     In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep[ NEWSOM,][]{matlabtolbox}.
-     {\tiny MATLAB} code, works in two phases. Phase one is the ``ordering phase". 
-     This phase starts with maximum neighbourhood distance (which is initially provided by user), and initial learning factor of 0.9 as a default values. 
+     In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep[NNT,][]{matlabtolbox}.
+     SOM in {\tiny NNT} works in two phases. 
+     Phase one is the ``ordering phase". 
+     This phase starts with maximum neighbourhood distance (which is initially provided by user), and initial learning factor of 0.9 which is a default value for the learning factor. 
      The ordering phase continues for requested number of iterations and during that steps changes the parameters in the way that in the last iteration learning factor is 0.02 and the neighbourhood distance is 1.
      
      The second phase is the ``tuning phase".
@@ -61,15 +62,94 @@
      This minimum neighbourhood distance and slowly decreasing the leaning factor helps to fine tune the topology results and causes the more stable SOM. 
      The number of iterations in this tuning phase most be much more than the number iterations in ordering phase, to allow the tuning happens slowly. 
      We chose number of epochs the tuning phase be 3 times more than number of epochs in the ordering phase.
+     
+     To show our results, we combine two of the {\tiny NNT}'s built-in plots. 
+     A Hits map, which shows number of hits for each neurons, and a distances map, which shows the same neurons and the distance between them. 
+     To combine these two maps, we wrote number of hits in each neurons in the neurons in a distance map.
+     The neurons with zero hit, left empty  (i.e. Fig~\ref{fig: testmodel2by2}).
+     In distance maps, the grey hexagonal shape areas represent the neurons.
+     The red lines between neurons, show the immediate neighbours.
+     The distances in a distance map are showing by colours.
+     The darker colour represents the larger distance between neurons; whilst the lighter colours means there is small distance between neurons.
     
-     We created different SOM with different sizes, initial neighbourhood, and iteration numbers to find the optimize result for our sample.
-     We test our code by varying the number of iterations in ordering phase and find $N = 100$  is optimized for our sample.
-     In Section~\ref{sec: test model} we used this toolbox to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
+     We created different SOM with different grids, initial neighbourhood, and iteration numbers to find the optimize result for our sample.
+     varying grids of the maps helps us to monitor whether grouping regions in smaller maps is real or its because of the shortage of the neurons.
+     We test our code by varying the number of iterations in the ordering phase and find $N = 100$  is optimized for our sample.
+     In Section~\ref{sec: test model} we used NNT to create SOMs from SED of galaxies and learn how this method works and how we can interpret the results.
    
  \subsection{Test Model}
  \label{sec: test model}
-    Before we start using SOM on our data, we apply this model in a test sample. 
-    Our test sample contains SED of 142 galaxies between redshift 0.5 $ \leq$ Z $\leq $ 1, which their physical information such as age, stellar mass and specific star formation are available. 
-    \cite{Hossein12} used trained network to classified their spectrum based on SED models from \cite{Kinney96} and \cite{Coleman80}.
+ %the sole puprpes of this section is to show how to read the SOM results. 
+    Before we start creating SOM for our data, we apply this model on an already studied sample. 
+    Our test sample contains spectral energy distribution (SED) as well as properties such as age, stellar mass and specific star formation rate of 142 galaxies with redshift 0.5 $ \leq$ Z $\leq $ 1, which were measured and studied by \cite{Hossein12}. 
+   % \cite{Hossein12} used supervised neural network method to classify galaxies' spectrum based on SED models from \cite{Kinney96} and \cite{Coleman80}.
+    We used SOM to group galaxies based on their SED. For each galaxy, fluxes on different wavelengths were an input of the program.
     
-    We create various SOM maps with different numbers of neurons and neighbourhood 
+    Then, We created various SOM maps with different girds and neighbourhoods. 
+    For each map, SOM grouped the galaxies based on their similarities. 
+    Galaxies with the most similarity in their SED gathered in the same neurons, the one with more similar spectral type have a light colour (i.e. bright yellow) between them, and the galaxies with the least similarity in their spectral type have black colour between them (Figs~\ref{fig: testmodel2by2} and~\ref{fig: testmodel3by2}).
+    
+    To illustrate these results more clearly, we averaged SED of the galaxies in each neurons and showed them in the same order as neurons in SOM (Figs~\ref{fig: sed_testmodel2by2} and~\ref{fig: sed_testmodel3by2}). 
+    Figs~\ref{fig: testmodel1} and~\ref{fig: testmodel2}, shows SOM results and the SED corresponding to them in $2\times2$ and $3\times2$ grids, respectively.  
+    Top panel of the Fig~\ref{fig: testmodel1} shows the combined hits and distance map for  $2\times2$ map. Since numbers in each neurons is the numbers of the galaxies in that neurons, we can say we divided our 142 galaxies in a group of 30, 50 and two groups of 29. In lower panel of Fig ~\ref{fig: testmodel1}, plot (a) shows averaged SED of 30 galaxies, plot (d) shows the average SED of 50 galaxies, and plots (c) and (b) show the average SED of 29 galaxies. 
+    
+    The colour between neurons with 34 galaxies and neurons with 54 galaxies is black, which indicate these two neurons have a maximum distance from each other and galaxies in those neurons are the least similar ones. By looking at the average SED plots for those two neurons, one can clearly see that the averaged SED of these two groups of galaxies are completely different. %should I talked about what kind of SED are they.
+    On the other hand, the colour between neurons with 54 galaxies and 29 galaxies is yellow, which shows the similarity and closeness of galaxies in these two neurons. 
+    Again, by looking at the average SED plots (c and d), it is clear that the averaged SED of these two groups are the most similar ones. 
+    In Fig~\ref{fig: sed_testmodel2by2} plots (a) and (b) shows some similarity, if we look at the distance map (Fig~\ref{fig: testmodel2by2}) we could see colours between neurons related to these two groups is bright orange which is relatively bright which represents some similarity between these two groups.
+    
+    In Fig~\ref{fig: testmodel2}, although the number of galaxies in each neurons are smaller due to higher number of neurons, one could see similar patterns. 
+    The average SED of the galaxies in neurons connected with bright colours are more similar to each other than the average SED of the galaxies in neurons connected with dark colours.
+    In the $3\times2$ grid, since the galaxies have more space to separate, they gathered in the smaller groups. 
+    However, most of the galaxies, which shared the same neurons, or were in the neurons close to each other, in Fig~\ref{fig: testmodel1} stayed in the neurons which are close to each other.
+    
+    One can increase the grids of the maps to the point that each neurons contain max 1 galaxy. 
+    This situation eventually happens because no two galaxies are exactly alike.
+    Even in this case, galaxies with similar SED stay in a area which all the neurons are connected with yellow colour, and the galaxies with different type of SED are separated from them with darker colours (Fig~\ref{fig: testmodel3}). 
+    Note that, empty neurons in the SOM results have their weight vectors and if we apply this network on the other set of data, based on similarity of the new data set to our sample, they could sit in the empty neurons.
+    
+    \begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.7\textwidth]{../images/test_model/2by2_nei3.pdf}
+            \caption{A combination of the hits and distance map in $2\times2$ SOM. }
+             \label{fig: testmodel2by2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.5\textwidth} 
+            \centering
+            \includegraphics[width=\textwidth]{../images/test_model/SED_total2by2nei3.png}
+            \caption{An average SED of galaxies in  $2\times2$ gird.}
+             \label{fig: sed_testmodel2by2}
+        \end{subfigure}
+        \caption{SOM result of the SED of the 142 galaxies in redshift of 0.5 $ \leq$ Z $\leq $ 1 with size of $2\times2$. Top: shows a combination of the hits and distance map in $2\times2$ SOM. Gray hexagonal shape areas represent neurons. Number of on each neurons shows the number of galaxies grouped in that neurons. Red lines connected neighbour neurons to each other, and colours between neurons are a scale of distance between neurons. Bottom: shows the Average SED of the galaxies in same neurons. Plots a, b, c, and d are averaged SED of galaxies in neurons with a number of 30, 29, 29, and 54, respectively.}
+        \label{fig: testmodel1}
+            
+    \end{figure}
+    
+    \begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+            \centering
+            \includegraphics[width=0.7\textwidth]{../images/test_model/3by2_nei3.pdf}
+            \caption{The same as Fig~\ref{fig: testmodel2by2} with size of $3\times2$.}
+             \label{fig: testmodel3by2}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.5\textwidth} 
+            \centering
+            \includegraphics[width=\textwidth]{../images/test_model/SED_total2by3nei3.png}
+            \caption{The same as Fig~\ref{fig: sed_testmodel2by2} with size of $3\times2$.}
+             \label{fig: sed_testmodel3by2}
+        \end{subfigure}
+        \caption{The same as Fig~\ref{fig: testmodel1}, but here we show results of SOM with size of $3\times2$.  }
+        \label{fig: testmodel2}
+            
+    \end{figure}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{../images/test_model/50by50_nei3.pdf}
+        \caption{The same as Fig~\ref{fig: testmodel2by2} with size of $50\times50$.}
+        \label{fig: testmodel3}
+    \end{figure}
