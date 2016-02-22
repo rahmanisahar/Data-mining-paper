@@ -22,7 +22,7 @@
  %Sahar_self_notes: maybe "some" is better instead of one or more
  Moreover,a weight vector ``\boldit{W}" with same dimension of the input data associates with each node which will be change during the process and has a key factor in a position of nodes in the map. 
  
- \cite{Geach12} presented the application of the SOM and demonstrate the algorithm of the SOM in detail. In this section we are going to talk briefly about the algorithm of the SOM, how we create our maps and a test model which will help to interpret our results.
+ \cite{Geach12} presented the application of the SOM and demonstrate the algorithm of the SOM in detail. In this section we are going to talk briefly about the algorithm of the SOM, how we create our maps and a test model which will help to interpret our results. %PB20160218: contrast SOM with principal component analysis (PCA), which may be more familiar?
  
  \subsubsection{Algorithm of SOM} 
  \label{sec: algorithm}
@@ -52,6 +52,7 @@
      \end{enumerate}
    
      In order to create SOM, we used {\tiny MATLAB} neural network toolbox~\citep[NNT,][]{matlabtolbox}.
+     Although size of the SOM could be anything \cite{Vesanto05} suggested that the total number of  $5\sqrt{n}$ neurons provides the most sufficient size.
      SOM in {\tiny NNT} works in two phases. 
      Phase one is the ``ordering phase". 
      This phase starts with maximum neighbourhood distance (which is initially provided by user), and initial learning factor of 0.9 which is a default value for the learning factor. 
@@ -83,7 +84,7 @@
     Before we start creating SOM for our data, we apply this model on an already studied sample. 
     Our test sample contains spectral energy distribution (SED) as well as properties such as age, stellar mass and specific star formation rate of 142 galaxies with redshift 0.5 $ \leq$ Z $\leq $ 1, which were measured and studied by \cite{Hossein12}. 
    % \cite{Hossein12} used supervised neural network method to classify galaxies' spectrum based on SED models from \cite{Kinney96} and \cite{Coleman80}.
-    We used SOM to group galaxies based on their SED. For each galaxy, fluxes on different wavelengths were an input of the program.
+    We used SOM to group galaxies based on their SED. For each galaxy, fluxes on different wavelengths were an input of the program. % PB20160218: should say how many data points per galaxy. Comment on the individual flux points not being statistically independent? Also, this is a fairly different sort of dataset than the M31 data, so need to explain how applicable.
     
     Then, We created various SOM maps with different girds and neighbourhoods. 
     For each map, SOM grouped the galaxies based on their similarities. 
@@ -93,7 +94,7 @@
     Figs~\ref{fig: testmodel1} and~\ref{fig: testmodel2}, shows SOM results and the SED corresponding to them in $2\times2$ and $3\times2$ grids, respectively.  
     Top panel of the Fig~\ref{fig: testmodel1} shows the combined hits and distance map for  $2\times2$ map. Since numbers in each neurons is the numbers of the galaxies in that neurons, we can say we divided our 142 galaxies in a group of 30, 50 and two groups of 29. In lower panel of Fig ~\ref{fig: testmodel1}, plot (a) shows averaged SED of 30 galaxies, plot (d) shows the average SED of 50 galaxies, and plots (c) and (b) show the average SED of 29 galaxies. 
     
-    The colour between neurons with 34 galaxies and neurons with 54 galaxies is black, which indicate these two neurons have a maximum distance from each other and galaxies in those neurons are the least similar ones. By looking at the average SED plots for those two neurons, one can clearly see that the averaged SED of these two groups of galaxies are completely different. %should I talked about what kind of SED are they.
+    The colour between neurons with 34 galaxies and neurons with 54 galaxies is black, which indicate these two neurons have a maximum distance from each other and galaxies in those neurons are the least similar ones. By looking at the average SED plots for those two neurons, one can clearly see that the averaged SED of these two groups of galaxies are completely different. %should I talked about what kind of SED are they. %PB: yes.
     On the other hand, the colour between neurons with 54 galaxies and 29 galaxies is yellow, which shows the similarity and closeness of galaxies in these two neurons. 
     Again, by looking at the average SED plots (c and d), it is clear that the averaged SED of these two groups are the most similar ones. 
     In Fig~\ref{fig: sed_testmodel2by2} plots (a) and (b) shows some similarity, if we look at the distance map (Fig~\ref{fig: testmodel2by2}) we could see colours between neurons related to these two groups is bright orange which is relatively bright which represents some similarity between these two groups.
@@ -107,7 +108,7 @@
     This situation eventually happens because no two galaxies are exactly alike.
     Even in this case, galaxies with similar SED stay in a area which all the neurons are connected with yellow colour, and the galaxies with different type of SED are separated from them with darker colours (Fig~\ref{fig: testmodel3}). 
     Note that, empty neurons in the SOM results have their weight vectors and if we apply this network on the other set of data, based on similarity of the new data set to our sample, they could sit in the empty neurons.
-    
+    %PB20160218: need some additional interpretation of the results
     \begin{figure}
         \centering
         \begin{subfigure}[b]{0.5\textwidth}

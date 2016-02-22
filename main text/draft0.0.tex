@@ -1,16 +1,24 @@
 \documentclass[useAMS,usenatbib]{mn2e}
 \usepackage{amsmath}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{natbib}
 \bibliographystyle{mn2e}
 \usepackage{times}
 \usepackage{float}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{subcaption}
 \usepackage{multirow}
 \usepackage{color,soul}
 \usepackage{import}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{multicol}        % Multi-column entries in tables
+\usepackage{bm}		% Bold maths symbols, including upright Greek
+\usepackage{pdflscape}	% Landscape pages
+%\usepackage{booktabs,fixltx2e}
+\usepackage[flushleft]{threeparttable}
 
 \newcommand \kpc        {\,{\rm kpc}}
 \newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }} $\ }
@@ -27,8 +35,12 @@
 \newcommand \boldit {\textbf{\textit{}}}
 \newcommand \eqnprime {N^\prime}
 \newcommand \Spitzer {{\it Spitzer }}
-\newcommand \Galex {GALEX }
+\newcommand \GALEX {GALEX }
 \newcommand \Herschel {{\it Herschel }}
+\newcommand{\sii}{S~{\textsc II}\ } 
+\newcommand{\oiii}{O~{\textsc III}\ } 
+\newcommand{\hi}{H~{\textsc I}\ }
+
 \newcommand \aaj {A\&A}
 \newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
 \newcommand \aas{A\&AS}%: Astronomy and Astrophysics Supplement Series
@@ -75,7 +87,7 @@ $^{2}$Department of Physics $\&$ Astronomy, University of Victoria, Finnerty Roa
 %----------------------------------------------------------------------------------------
 
 \begin{abstract} 
- The vast availability of data for nearby galaxies makes them suitable targets for data mining in order to find new patterns in these galaxies.
+ The vast availability of data for nearby galaxies makes them suitable targets for exploratory data analysis in order to find new patterns in these galaxies.
 In this project we are studying data from 10 regions in M31 and 8 regions in M101.Based on available information for these two galaxies we classified these regions in different groups using unsupervised self organizing map (SOM) method.
 %We divided these regions from 2 to 6 different classes, and for each class we are going to interpret results and check whether these classiﬁcations have a physical meaning or they are just statistically relate to each other. 
 %As a result, we can predict some properties of regions in other galaxies by having only few data.
@@ -140,7 +152,7 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 \section{SUMMARY}
 
 \section*{ACKNOWLEDGMENTS}
-S.R and P.B acknowledge research support from the Natural Sciences and Engineering Research Council of Canada and from the Academic Development Fund of the University of Western Ontario. This research has made use of the NASA/IPAC Extragalactic Database (NED), which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
+S.R. and P.B. acknowledge research support from the Natural Sciences and Engineering Research Council of Canada. This research has made use of the NASA/IPAC Extragalactic Database (NED), which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
