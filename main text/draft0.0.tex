@@ -19,6 +19,8 @@
 \usepackage{pdflscape}	% Landscape pages
 %\usepackage{booktabs,fixltx2e}
 \usepackage[flushleft]{threeparttable}
+\usepackage{mwe}    % loads »blindtext« and »graphicx«
+\usepackage{subfig}
 
 \newcommand \kpc        {\,{\rm kpc}}
 \newcommand \sigmagas    {$\Sigma_{\rm \bld {gas }} $\ }
@@ -28,17 +30,17 @@
 \newcommand \eqsigmasfr     {\Sigma_{\rm \bld {SFR }}}
 \newcommand \sigmastar    {$\Sigma_{\rm \bld {star }} $\ }
 \newcommand \eqsigmastar    {\Sigma_{\rm \bld {star }}}
-\newcommand \halpha    {H$\alpha $\ }
-\newcommand \um    {$\mu$m\ }
-\newcommand \mice {$\mu$m}
+\newcommand \halpha    {H$\alpha $}
+\newcommand \um    {$\mu$m}
+%\newcommand \mice {$\mu$m}
 \newcommand \nprime {N$^\prime$}
 \newcommand \boldit {\textbf{\textit{}}}
 \newcommand \eqnprime {N^\prime}
 \newcommand \Spitzer {{\it Spitzer }}
 \newcommand \GALEX {GALEX }
 \newcommand \Herschel {{\it Herschel }}
-\newcommand{\sii}{S~{\textsc II}\ } 
-\newcommand{\oiii}{O~{\textsc III}\ } 
+\newcommand{\sii}{S~{\textsc II}} 
+\newcommand{\oiii}{O~{\textsc III}} 
 \newcommand{\hi}{H~{\textsc I}\ }
 
 \newcommand \aaj {A\&A}
@@ -87,10 +89,23 @@ $^{2}$Department of Physics $\&$ Astronomy, University of Victoria, Finnerty Roa
 %----------------------------------------------------------------------------------------
 
 \begin{abstract} 
- The vast availability of data for nearby galaxies makes them suitable targets for exploratory data analysis in order to find new patterns in these galaxies.
-In this project we are studying data from 10 regions in M31 and 8 regions in M101.Based on available information for these two galaxies we classified these regions in different groups using unsupervised self organizing map (SOM) method.
-%We divided these regions from 2 to 6 different classes, and for each class we are going to interpret results and check whether these classiﬁcations have a physical meaning or they are just statistically relate to each other. 
-%As a result, we can predict some properties of regions in other galaxies by having only few data.
+Galaxies are very complex systems; therefore, a complete understanding of them cannot be achieved only from studying linear or logarithmic correlations between their properties and various waveband data.
+In the past few decades, a number of statistical methods have been developed and advanced to study and visualize complex big data.
+We used one of these methods to study properties of nearby galaxies and create a more clear picture of them.
+The vast availability of data for nearby galaxies makes them suitable targets for exploratory data analysis. 
+Spatially resolved maps provide us with a unique view of the inside of galaxies.%and help better understand their properties.
+In this project, we utilized the Kohonen Self Organizing Map (or self organizing map, SOM) method to study data from M31 and M101.
+%SOM is an unsupervised neural network for mapping and visualizing a complex and nonlinear high dimension data while preserving topological features of the original data. 
+%We studied 10 regions in M31 and 8 regions in M101. 
+%These regions were chosen based on the availability of mid-infrared spectroscopy data.
+%For each region in M31, we had 46 data obtained through photometry, spectroscopy, and derived quantities (i.e., star formation rate, stellar mass, gas mass, etc.). 
+%Using results from a correlation coefficient matrix, we reduced the dimension of this dataset and then trained the SOM using the new subset of data. 
+We created SOMs of various sizes and used them to extract information about the galaxies.
+Using smaller-sized SOMs the data were clustered in 2 major groups; and for each group, we found correlations that could not have otherwise seen without clustering. 
+In the maps with larger sizes, we created networks to illustrate the relative relations of the regions with one another. 
+We then applied the SOMs that were generated from the M31 data to from M101. 
+We found regions with similar properties in both galaxies placed in close regions in the SOMs.  
+These results confirm that the generated SOMs can separate regions based on their physical properties, and can be used to make predictions for other regions in nearby galaxies or other targets. 
 
 \end{abstract}
 \begin{keywords} 
@@ -131,7 +146,9 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
-\import{../sections/}{results0.0.tex}
+%\import{../sections/}{results0.0.tex}
+\import{../sections/}{R10.0.tex}
+\import{../sections/}{R20.0.tex}
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
@@ -140,7 +157,7 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 
-\import{../sections/}{diss0.0.tex}
+\import{../sections/}{caveat.tex}
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
@@ -162,6 +179,6 @@ S.R. and P.B. acknowledge research support from the Natural Sciences and Enginee
 %----------------------------------------------------------------------------------------
 \bibliographystyle{mnras}
 \bibliography{ref_mining.bib}
-
+\import{../sections/}{app_2d.tex}
 
 \end{document}
