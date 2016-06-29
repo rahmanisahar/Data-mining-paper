@@ -5,12 +5,12 @@
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
-\section{1D SOMs}
+\section{One dimensional Self-organizing maps}
     \label{Sec: 1d_cluster}
 %Why 1D maps are useful
-    The purpose of the exploring M31 with 1D maps is to monitor the general behaviour of data. 
+    The purpose of the exploring M31 data with 1D maps is to monitor the general behaviour of data. 
     1D SOMs can have from the minimum number of clusters, $1\times2$, to the highest number of cluster possible.
-    In small sample size like ours, smaller grid SOMs are very useful to find correlations that cannot be found without the clustering the data.
+    In a small sample like ours, smaller grid SOMs are very useful to find correlations that cannot be found without the clustering the data.
     On the other hand, higher grid 1D SOMs are a helpful tool to get quick insight into data.
 %    In the following section, we are going to show how we used 1D SOMs to extract information from available data in M31.
 %Clustering
@@ -19,21 +19,21 @@
         In order to monitor how the data behaves, we created SOMs with two to fourteen neurons (Fig.~\ref{fig: M31_nets_1d}).
         The $1\times2$ network (Fig.~\ref{fig: M31_net_1by2}) shows how the M31 data can be divided into two broad categories.
         While the $1\times14$ network (Fig.~\ref{fig: M31_net_1by14}) is the first network that all the regions in M31 are completely separated.
-        Since in the higher network size, regions have more space to be separated based on their differences, we can see that from $1\times2$ to $1\times14$ network the M31 regions separated from each other more and more till they become completely separated. 
+        Since in the higher network sizes, regions have more space to be separated based on their differences, we can see that from $1\times2$ to $1\times14$ network the M31 regions separated from each other increasingly, until they are completely separated. 
         
-        In Fig.~\ref{fig: M31_net_1by2} it is clear that by forcing the regions in the M31 to be divided into two groups, regions 1, 2, 9 and 10 occupy one neurons and the other regions occupy the other neuron.
-        The medium grey colour between two neurons tell us that there are some similarity between two groups, but they are not very similar. 
+        In Fig.~\ref{fig: M31_net_1by2}, it is clear that by forcing the regions in the M31 to be divided into two groups, regions 1, 2, 9 and 10 occupy one neuron and the other regions occupy the other one.
+        The medium grey colour between two neurons indicates that there are some similarity between two groups, but they are not very similar. 
         By increasing the size of the neurones to three, in Fig.~\ref{fig: M31_net_1by3}, we can see that the region 2 separates itself from the other regions and occupies the middle neuron.
-        The white colour between two left neurons suggests that regions, which occupy these neurons are very similar to each other, while the black colour between two right neurons indicates the opposite.
+        The white colour between two left neurons suggests that regions, which occupy these neurons are very similar to each other, while the black colour between two right neurons expresses otherwise.
         
         %%%Talking about four right regions
-        \cite{Dim15} showed that the regions 1, 2, 9, and 10 have higher PAHs flux intensity compare with other regions (Fig. 5 in \cite{Dim15} paper). 
+        \cite{Dim15} showed that the regions 1, 2, 9, and 10 have higher PAHs flux intensity compare to other regions (Fig. 5 in \cite{Dim15} paper). 
         %Regions 1, 2, and 9 are in the 10~Kpc ring and region 10 is located in the bulge of M31; however, regions 3 to 8 are located slightly out of the inner ring or the 10~kpc one.
         These regions also have relatively high intensity in the SPIRE bands and have high dust luminosity.
-        The higher values in the intensity of the PAHs, SPIRE bands and the dust luminosity could be the reason that these 4 regions become separated from the others in  $1\times2$ network.
+        The higher values in the intensity of the PAHs, SPIRE bands and the dust luminosity could be the reason that these 4 regions become separated from the others, in $1\times2$ network.
         Besides, Regions 1, and 9 are in the 10~Kpc ring, region 2 is slightly out of the 10~Kpc ring and the region 10 is in the bulge of M31; however, regions 3 to 8 are located out of the inner ring or the 10~kpc ring (Fig.~\ref{fig: regions in m31}).   
         The differences in their positions might be the reason of regions 1, 2, 9 and 10 having higher values in some quantities than the others. 
-        The similarity in the other inputs values with the other regions causes regions 1, 2, and 9 gradually have more distance with region 10, and move towards other regions in the higher grid SOMs.
+        The similarity in the other input values with the other regions causes regions 1, 2, and 9 gradually move towards other regions, and have more distance with region 10, in the higher grid SOMs.
        % Therefore, in 1D networks with 14 neurons or higher, regions 1, 2, and 9 completely are separated from region 10, and show more similarity to other regions than to the region 10.
         
         %%% Repeated from the other paragraphs
@@ -63,18 +63,19 @@
         \end{figure}
         
         %%Network 1by14
-        The network with 14 neurons, in Fig.~\ref{fig: M31_net_1by14}, is the first network which has no neurons with more than one region.
-        In a higher grid SOM, network pays more attention to smaller details.
+        The network with 14 neurons, in Fig.~\ref{fig: M31_net_1by14}, is the first network, that has no neuron to be occupied with more than one region.
+        In a higher grid SOM, network pays more attention to smaller details and differences in the input data.
         Therefore, since at least 14 neurons are needed to separate all the 10 regions in M31, we can conclude that some of the regions have very small differences.
-        In fig.~\ref{fig: regions in m31}, some the regions are grouped next to each other in the galaxy, which is the reason why some of the regions have vary similar input values.
+        Regions that are located in similar area in M31, like region 7 and 4 (see Fig.~\ref{fig: regions in m31}), are most likely show more similarity to each other.
         In Fig.~\ref{fig: M31_net_1by14}, the most right neuron is occupied by region 10.
         Two black colour between this region and the others indicates the high differences between this neuron and the other ones.
-        The region 10 is located in the bulge of M31, and its separation from other regions, which are mostly located around of the inner or outer rings, is due to the fact that most of the input values for this region is much higher than the other regions.
-        The region 8 occupies the most right neurons in this network, that suggests that this region has the most differences with the region 10.
+        The region 10 is located in the bulge of M31, and its separation from other regions, which are mostly located around the inner or outer rings, is due to the fact that most of the input values for this region is much higher than the other regions.
+        The region 8 occupies the most right neurons in this network, that suggests that this region has the most differences with region 10.
         
         
     \subsection{Inside of the 2 neurons network}%%% I will find better title for this subsection
         %What is going on in this section
+        \label{sec: inside_the_2_neurons}
         Using SOMs, we can identify hidden subgroups in our samples. 
         Each of these subgroups were separated from each other, for a reason.
         This reason can vary from having higher values in some specific wavelengths, as discussed in Sec.~\ref{Sec: 1d_cluster}, to some unknown correlations between data, that cannot be seen in other groups or in a Galaxy's data as a whole.
@@ -87,37 +88,41 @@
         \end{figure}
         
         %%% what regions' version shows and how it compares with the other one:
-        In Fig.~\ref{fig: cor_all}, all the PAHs features highly correlate with each other. 
-        Also, considering data from all M31 regions, there are very strong correlations between all the PAHs features and PACS~100~$\mu$m~, SPIRE 250 to 500~$\mu$m~emission, L$_{\rm DUST}$, L$_{\rm TIR}$, SFR, and metallicity.
-        However, in Fig.~\ref{fig: cor_cluster1},12.0 and 12.7~$\mu$m~ PAHs fluxes do not show any significant or strong correlation with PAH fluxes in other wavelengths or most other quantities.
-        The only exceptions are the strong correlation between PAH flux at 12~$\mu$m and dust luminosity, and between 12 and 12.7~$\mu$m PAH fluxes.
-        Since there are only 6 regions in the cluster, even one outlier in the data can causes the correlation coefficient become insignificant.
-        By removing the outlier, the correlations between 12.0 and 12.7~$\mu$m~ PAHs fluxes and the other quantities show themselves. 
+        In Fig.~\ref{fig: cor_all}, which shows the Pearson correlation coefficients from data in all 10 regions, all the PAHs features highly correlate with each other. 
+        Also, there are very strong correlations between all the PAHs features and PACS~100~$\mu$m~, SPIRE 250 to 500~$\mu$m~emission, L$_{\rm dust}$, L$_{\rm TIR}$, SFR, and metallicity.
+        However, in Fig.~\ref{fig: cor_cluster1}, 12.0 and 12.7~$\mu$m~PAHs fluxes do not show any significant or strong correlation with PAH fluxes in other wavelengths or most of the other quantities.
+        The only exceptions are the strong correlation between PAH flux at 12~$\mu$m and L$_{\rm dust}$, and between 12 and 12.7~$\mu$m PAH fluxes.
+        Since there are only 6 regions in this cluster, even one outlier in the data may cause the correlation coefficient become insignificant.
+        By removing the outlier, the correlations between 12.0 and 12.7~$\mu$m~PAHs fluxes and the other quantities show themselves. 
         
-        For the rest of the PAHs fluxes in Fig.~\ref{fig: cor_cluster1}, there are not any significant correlations with PACS~100~$\mu$m, L$_{\rm DUST}$, L$_{\rm TIR}$, SFR, or metallicity, too.
+        For the rest of the PAHs fluxes in Fig.~\ref{fig: cor_cluster1}, there are not any significant correlations with PACS~100~$\mu$m, L$_{\rm dust}$, L$_{\rm TIR}$, SFR, or metallicity, neither.
         They have correlations with SPIRE emission, but they are weaker than the ones with data from all regions.
-        Correlations between PAHs, features and SFR and L$_{\rm TIR}$  are well-studied~\citep[e.g.][]{Tielens08,Peeters04}. 
-        Many groups used PAHs features as a tracer of SFR by finding correlation between 
+        Correlations between PAHs features and SFR, and L$_{\rm TIR}$ are well-studied~\citep[e.g.][]{Tielens08,Peeters04}. 
+        Many groups used PAHs features as a tracer of SFR by finding correlations between 
         PAHs emission and SFR derived from extinction corrected \halpha~\citep[e.g.][]{Shipley16,Khramtsova13,Calzetti07}.
-        This correlation can be seen in Fig.~\ref{fig: cor_all}, when we considered the data from all regions, but not in Fig.~\ref{fig: cor_cluster1} considering the clustered data.
-        Further analysis shows that the absence of the correlation between PAHs features and SFR, is because of one outlier in data. 
-        When we disregard the outlier data, high correlation between 6.2 to 11.3~$\mu$m~PAHs features and SFR (and L$_{\rm TIR}$) appears again.
+        These correlations are seen in Fig.~\ref{fig: cor_all}, when we considered the data from all regions, but not in Fig.~\ref{fig: cor_cluster1} when considering the clustered data.
+        Further analyses show that the absence of correlations between PAHs features and SFR, is because of one outlier in data. 
+        When we disregard the outlier data, high correlations between 6.2 to 11.3~$\mu$m~PAHs features and SFR (and L$_{\rm TIR}$) reappear.
         Strong ant-correlation between 6.2 to 11.3~$\mu$m~PAHs features and RHI, stellar mass, \halpha, \sii, \oiii, and IRAC~5.6~$\mu$m~emission in Fig.~\ref{fig: cor_cluster1} had not be seen in Fig.~\ref{fig: cor_all}.
      %   In Fig.~\ref{fig: cor_cluster1}, 6.2, 7.7, 8.3, 8.6, and 11.3~$\mu$m~PAHs features show strong anti-correlations with RHI, stellar mass, \halpha, \sii, \oiii, and IRAC~5.6~$\mu$m~emission.
-        Anti-correlations between PAHs features and the \halpha, \sii, and \oiii~emission could be result of one the followings. 
-        The optical data are not corrected for dust extinction. The PAHs features correlate with dust, and \halpha emission is sensitive to dust extinction. Therefore, more PAHs features, means more dust and less \halpha emission (The same for \sii~and \Oiii~emission).
-        Or it is the affect of observing choice, if the apertures are located in the edge of the regions we would expect too see more PAHs and less \halpha emission. %ehhhhh %%% reference?
-        The anti-correlation between 6.2 to 11.3~$\mu$m~PAHs features and RHI have been seen in other studies, too~\citep[e.g.][]{Dim15, Gordon08, Wu06}.
-        \cite{Wu06} discussed this ant-correlation could be the result of destruction of the PAHs due to the high amount of the harder radiation (thus higher RHI).
-        On the other hand, \cite{Gordon08} the harder radiation could make the photodissociation regions (PDRs) smaller.
-        The PAHs features are mostly coming from the PDRs that are surrounded by H {\sc II} regions, and their underlying continuum emission is from the H {\sc II} regions.
+     
+        Anti-correlations between PAHs features and the \halpha, \sii, and \oiii~emission could be the result of one the followings. 
+        First, the optical data are not corrected for dust extinction.
+        The PAHs features correlate with dust, and \halpha emission is sensitive to dust extinction.
+        Therefore, more PAHs features, means more dust and less \halpha~emission (The same for \sii~and \oiii~emission).
+        Second, it is the effect of observing apertures.
+        If the regions are located in the edge of the H {\sc II} regions we would expect too see more PAHs and less \halpha~emission. %%% reference?
+        The anti-correlations between 6.2 to 11.3~$\mu$m~PAHs features and RHI have been seen in other studies, too~\citep[e.g.][]{Dim15, Gordon08, Wu06}.
+        \cite{Wu06} discussed these ant-correlations could be the result of destruction of the PAHs due to the high amount of the harder radiation (thus higher RHI).
+        On the other hand, \cite{Gordon08} argued that the harder radiation could make the photodissociation regions (PDRs) smaller.
+        The PAHs features are mostly coming from the PDRs that are surrounded by H {\sc II} regions, and the PAHs features underlying continuum emission is from the H {\sc II} regions.
         Therefore, the lower flux of the PAHs features could be the result of the smaller size of PDRs.
-        The later reason, which could also describe the anti-correlation between PAHs features and \halpha~emission, seems to be the more possible one. 
+        The later reason, which could also describe the anti-correlation between PAHs features and \halpha~emission, seems to be the more probable one. 
         %%% The anti correlation with stellar mass?!! with IRAC3?!!
         
-       Despite the fact that some of the (anti)-correlations in Fig.~\ref{fig: cor_cluster1} might have physical meaning, we have to remind that, we only used 6 regions to calculate these correlation coefficients.
-       Having 6 data points in the sample is not high enough to have a strong conclusion about the PAHs in M31.%%% it doesn't sound right:((
-        However, we can conclude that since the correlation coefficients derived from the clustered data (Fig.~\ref{fig: cor_cluster1}) varies from correlation coefficients derived from the data from the all regions (Fig.~\ref{fig: cor_all}), SOM separated a hidden cluster of the data, which their properties are different than the others. %%Again eh!
+       Despite the fact that some of the (anti)-correlations in Fig.~\ref{fig: cor_cluster1} might have physical meanings, we have to mention that, we only used 6 regions to calculate these correlation coefficients.
+       Having 6 data points as a sample of the study is not high enough to have a strong conclusion about the PAHs in M31.%%% it doesn't sound right:((
+        However, we can conclude that since the correlation coefficients derived from the clustered data (Fig.~\ref{fig: cor_cluster1}) differs from correlation coefficients derived from the data from the all regions (Fig.~\ref{fig: cor_all}), SOM separated a hidden cluster of the data, which their properties are different than the others. %%Again eh!
         
         
         

@@ -1,9 +1,8 @@
 \documentclass[useAMS,usenatbib]{mn2e}
 \usepackage{amsmath}
-%\usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{natbib}
-\bibliographystyle{mn2e}
 \usepackage{times}
 \usepackage{float}
 %\usepackage{caption}
@@ -39,9 +38,9 @@
 \newcommand \Spitzer {{\it Spitzer }}
 \newcommand \GALEX {GALEX }
 \newcommand \Herschel {{\it Herschel }}
-\newcommand{\sii}{S~{\textsc II}} 
-\newcommand{\oiii}{O~{\textsc III}} 
-\newcommand{\hi}{H~{\textsc I}\ }
+\newcommand \sii {S~{\textsc II}} 
+\newcommand \oiii {O~{\textsc III}} 
+\newcommand \hi {H~{\textsc I}\ }
 
 \newcommand \aaj {A\&A}
 \newcommand \aarv {A\&ARv}%: Astronomy and Astrophysics Review (the)
@@ -58,22 +57,17 @@
 \newcommand \mem {Mem. RAS}%: Memoirs of the Royal Astronomical Society
 \newcommand \mnassa {MNASSA}%: Monthly Notes of the Astronomical Society of Southern Africa
 \newcommand \mnras {MNRAS} %: Monthly Notices of the Royal Astronomical Society
-%\newcommand {Nature}%(do not abbreviate)
 \newcommand \pasj {PASJ}%: Publications of the Astronomical Society of Japan
 \newcommand \pasp {PASP}%: Publications of the Astronomical Society of the Pacific
 \newcommand \qjras {QJRAS}%: Quarterly Journal of the Royal Astronomical Society
 \newcommand \mex {Rev. Mex. Astron. Astrofis.}%: Revista Mexicana de Astronomia y Astrofisica
-%\newcommand {Science }%}%(do not abbreviate)
 \newcommand \sva {SvA}%: Soviet Astronomy
 \newcommand \aap {APP} %:American Academy of Pediatrics
 \newcommand \apjl {ApJL} %:The Astrophysical Journal Letters
 
-\begin{document}
-% TITLE
 
+\begin{document}
 \title{Data Mining in Nearby Galaxies}
-\author{rahmani.sahar }
-\date{\today}
 \author[S. Rahmani, et. al.]{S.~Rahmani$^{1, 2}$\thanks{E-mail:
 srahma49@uwo.ca}, H.~Teimoorinia$^{3}$, E.~Peeters$^{1, 2, 4}$, P.~Barmby$^{1, 2}$\\
 $^{1}$Department of Physics $\&$ Astronomy, Western University, London, ON N6A 3K7, Canada\\
@@ -95,9 +89,8 @@ Galaxies are very complex systems; therefore, a complete understanding of them c
 In the past few decades, a number of statistical methods have been developed and advanced to study and visualize complex big data.
 We used one of these methods to study properties of nearby galaxies and create a more clear picture of them.
 The vast availability of data for nearby galaxies makes them suitable targets for exploratory data analysis. 
-Spatially resolved maps provide us with a unique view of the inside of galaxies.%and help better understand their properties.
-In this project, we utilized the Kohonen Self Organizing Map (or self organizing map, SOM) method to study data from M31 and M101.
-%SOM is an unsupervised neural network for mapping and visualizing a complex and nonlinear high dimension data while preserving topological features of the original data. 
+Spatially resolved maps provide us with a unique view of the inside of galaxies. %and help better understand their properties.
+In this project, we utilized the Kohonen Self Organizing Map (SOM) method to study data from M31 and M101. %SOM is an unsupervised neural network for mapping and visualizing a complex and nonlinear high dimension data while preserving topological features of the original data. 
 %We studied 10 regions in M31 and 8 regions in M101. 
 %These regions were chosen based on the availability of mid-infrared spectroscopy data.
 %For each region in M31, we had 46 data obtained through photometry, spectroscopy, and derived quantities (i.e., star formation rate, stellar mass, gas mass, etc.). 
@@ -108,7 +101,6 @@ In the maps with larger sizes, we created networks to illustrate the relative re
 We then applied the SOMs that were generated from the M31 data to from M101. 
 We found regions with similar properties in both galaxies placed in close regions in the SOMs.  
 These results confirm that the generated SOMs can separate regions based on their physical properties, and can be used to make predictions for other regions in nearby galaxies or other targets. 
-
 \end{abstract}
 \begin{keywords} 
 galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies: stellar content, galaxies: ISM, stars: formation, ISM: clouds, methods: observational, methods: statistical, data mining, methods:data analysis, techniques: image processing 
@@ -159,7 +151,7 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 
-\import{../sections/}{caveat.tex}
+%\import{../sections/}{caveat.tex}
 
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
@@ -169,8 +161,34 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 \section{SUMMARY}
+\label{sec: summary}
+Self-organizing maps can be used to explore hidden subgroups and underlying structure of the data.
+In this project we investigated applications of the Self-organizing maps in data from nearby galaxies.
+We utilized the SOM method to study data from two well-studied galaxies; M31 and M101.
+Data from nearby galaxies can be clustered in various networks with different sizes/dimensions based on the information needed from the data. 
+A network with one dimension and a few neurons, can be used for general classification, while for more detailed clustering, a higher number of neurons should be used.
+
+Using smaller-sized self-organizing maps, the M31 data were clustered in 2 major groups; we found correlations that could not have otherwise been seen without clustering.
+For example in Sec.~\ref{sec: inside_the_2_neurons}, we found that six of the regions in M31 create a subgroup of data, that have lower amount of PAHs flux.
+Flux from the PAHs features in these regions highly anti-correlated with \halpha~emission despite that considering Flux from the PAHs features in all regions highly correlates with SFR.
+Our analyses of smaller-sized networks showed that using this method we can find hidden subgroups in data to extend our knowledge of inside the galaxies.
+
+In the maps with larger sizes, networks can be used to illustrate the relative relations of the regions with one another.
+We found the relative similarity between M31 regions, by varying the size of networks.
+A one-dimensional network with 14 neurons was needed in order to
+separate all 10 regions; we concluded that some of the region in M31 (e.g. regions 4 and 7) are very similar.
+A two-dimensional networks provide us a more complete picture of the data.
+Using these networks, we show a relative relations between regions in M31.
+
+We introduced self-organizing maps as a method that can be used to predict the amount of various quantities based on the relative positions of the regions in the networks.
+By converting the relative distance between regions to the probability distribution function, we could predict unobserved/unmeasured properties of the galaxies with 10 per cent uncertainty.
+We also applied the SOMs from M31 data to M101 data and found regions with similar properties in both galaxies placed in close regions in the SOMs.
+We show that using this ability of the SOM, we can predict properties of regions in other nearby galaxies very fast.
+
+ 
 
 \section*{ACKNOWLEDGMENTS}
+The authors thank A. Tammour for her useful comments. 
 S.R., P.B., and E.P. acknowledge research support from the Natural Sciences and Engineering Research Council of Canada. This research has made use of the NASA/IPAC Extragalactic Database (NED), which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
@@ -179,7 +197,7 @@ S.R., P.B., and E.P. acknowledge research support from the Natural Sciences and 
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
-\bibliographystyle{mnras}
+\bibliographystyle{mn2e}
 \bibliography{ref_mining.bib}
 \import{../sections/}{app_2d.tex}
 
