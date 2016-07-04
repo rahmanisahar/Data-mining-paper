@@ -121,39 +121,40 @@
                 
 
     \subsection{Testing networks using M101 observations}
-    Another application of SOM for nearby galaxies is to apply the trained networks on the data from other galaxies in order to predict properties of the observed regions in them. %%eh
-    Therefore, we generated an SOM using data from M31 that hold in common with M101 data (Fig.~\ref{fig: subset9}a). 
-    \cite{Dim15} compared PAHs in M31 with those from H {\sc II} regions in M101, and showed the similarity between PAHs from these two galaxies (For more detail see \cite{Dim15} and \cite{Gordon08}).
-    In this SOM, the same as the others, region 10 is separated from other regions in M31.
-    Regions 7 and 4 are close to each other with very light colours between their neurons, and the same as the other SOMs regions 6, 8, and 5 are close to each other, but with medium dark colour between them.
+    Another application of self-organizing maps made with data from a single galaxy is to apply its trained networks on data from other galaxies to make predictions. %%eh
+    To demonstrate this, we generated an SOM using only M31 measurements which were also available for M101 (Fig.~\ref{fig: subset9}a). 
+    \cite{Dim15} compared PAHs in M31 with those from H {\sc II} regions in M101, and showed the similarity between PAHs om these two galaxies (For more detail see \cite{Dim15} and \cite{Gordon08}).
+    In this SOM, as in the others, region 10 is separated from other regions in M31.
+    Regions 7 and 4 are close to each other with very light colours between their neurons, and as in the other SOMs regions 6, 8, and 5 are close to each other, but with medium dark colour between them.
     \import{../sections/image_texts/}{subset9.tex}
     
-    We applied the SOM created using M31 data in Fig.~\ref{fig: subset9}a on M101 data (Fig.~\ref{fig: subset9}b).
-    Region 5 in M31 and region 8 in M101 and regions 6 in M31 and region 2 in M101 occupied neurons with white colour between them in the network in Fig.~\ref{fig: subset9}, which immediately suggest that these regions have similar properties. 
+    We applied the SOM created using M31 data in Fig.~\ref{fig: subset9}a to M101 data (Fig.~\ref{fig: subset9}b).
+    Region 5 in M31 and region 8 in M101 and regions 6 in M31 and region 2 in M101 occupied neurons with a white colour between them in the network in Fig.~\ref{fig: subset9}, which immediately suggests that these regions have similar properties. 
+    %PB join paragraphs
+    Region 2 in M101 is a bright H {\sc II} region located at the end of the one of the M101 spiral arms (see Fig.~\ref{fig: regions in m101}) while
+    region 6 in M31 is located near the inner star-forming ring (see Fig.~\ref{fig: regions in m31}).
+    Both regions have relatively low PAH emission and a median amount of  SFR compared to other regions in the galaxy,  makeing them very similar.
     
-    Region 2 in M101 is a bright H {\sc II} region that is located at the end of the one of the M101 spiral arm (see Fig.~\ref{fig: regions in m101}). 
-    Region 6 in M31 is located near the inner ring of the galaxy (see Fig.~\ref{fig: regions in m31}).
-    Both regions have relatively low amount of PAHs emission and medium amount of the SFR regarding the other regions in the galaxy, which makes them very similar regions.
-    
-    Region 5 in M31 is in inner ring of the galaxy and it is one of two regions in M31 that are not an  H {\sc II} region.
+    Region 5 in M31 is in the inner ring of the galaxy and it is one of two regions in M31 that are not an  H {\sc II} region, while
     region 8 in M101 is in a spiral arm of the galaxy.
-    Relatively low stellar mass, SFR and SPIRE band emission caused these two regions have close distance in the map.
-    In Sec.~\ref{Sec: 1d_cluster} we showed that regions 3 to 8 in M31 have similar properties, in Fig.~\ref{fig: subset9}b we see that regions 1 to 3 and 5 to 8 in M101 are located near regions 3 to 8 in M101. 
-    These regions all have medium or low amount of PAHs, dust and SFR compare to the rest of them.
+    Relatively low stellar mass, SFR and SPIRE band emission caused these two regions to be nearby in the map.
+    In Sec.~\ref{Sec: 1d_cluster} we showed that regions 3 to 8 in M31 have similar properties; in Fig.~\ref{fig: subset9}b we see that regions 1 to 3 and 5 to 8 in M101 are located near regions 3 to 8 in M101. 
+    These regions all have medium or low PAH emission, dust and SFR compared to the remaining regions.
     
-    Region 7 in M101 is located in the nucleus of the galaxy and has relatively higher quantities than the other regions.
-    This region is located in the top right side of the network in Fig.~\ref{fig: subset9}, which is close to location of region 10 in the network.
-    Since the bulge of a spiral galaxy has different environment from its nucleus, region 7 in M101 and region 10 in M31 are not occupied the same neuron in the SOM, and have a medium grey colour between their neurons.
+    Region 7 in M101 is located in the nucleus of the galaxy and has relatively higher values of the quantities than the other regions.
+    This region is located in the top right side of the network in Fig.~\ref{fig: subset9},  close to the location of M31 region 10 in the network.
+    Since the bulge of a spiral galaxy has a different environment from its nucleus, region 7 in M101 and region 10 in M31 do not occupy the same neuron in the SOM, and have a medium grey colour between their neurons.
 
-    Region 1 in M101 is located near the nucleus of M101 (see Fig.~\ref{fig: regions in m101}), but has considerably lower values in all the quantities than the ones in region 7.
-    The lower values for fluxes of the PAH features, and relatively moderate amount of the SFR caused this region places between region 4 and 5 of M31 in the network. 
-    Fig.~\ref{fig: subset9}b shows that region 4 in M101 is separated itself from other regions and located between region 9 and 10 in M31.
-    \cite{Gordon08} showed that this region is a diffuse nebula in M101, with high amount of fluxes of PAH features. 
-    This region also shows a high amount of the SFR and the stellar mass, which describes why the location of region 4 from M101 in the SOM is close to regions 9 and 10 from M31.
+    Region 1 in M101 is also located near the nucleus of M101 (see Fig.~\ref{fig: regions in m101}), but has considerably lower values in all the quantities compared to region 7.
+    The lower values for fluxes of the PAH features and moderate amount of the SFR caused this region to be placed between M31 regions 4 and 5 in the network. 
+    Fig.~\ref{fig: subset9}b shows that region 4 in M101 is separated from other regions and located between M31 regions 9 and 10.
+    \cite{Gordon08} showed that this region is a diffuse nebula in M101, with high PAH emission. 
+    This region also shows a high SFR and stellar mass, explaining why the location of M101 region 4 in the SOM is close to that of M31 regions 9 and 10.
     
-    Knowing effect of each data entry on the networks From Section~\ref{sec: subsets}, we can have ideas about that data entry that we do
+    %PB: this paragraph seems to be unfinished?
+    Knowing the effects of the different input quantities on the networks from Section~\ref{sec: subsets}, we can have ideas about that data entry that we do
     In this section we showed that we can use networks that are created by data from nearby galaxies, to study the properties of other galaxies in a fast way.
-    We should note that, since we normalized data before using them in the networks, we only see a relative properties of the regions.
+    We should note that, since we normalized data before using them in the networks, we only see relative properties of the regions.
     Therefore, we need data from few regions in the galaxy to use this network cannot use these networks to learn about properties of a single region in other galaxies.
     
     
