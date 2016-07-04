@@ -7,90 +7,90 @@
 %----------------------------------------------------------------------------------------
  \section{Two dimensional self-organizing maps}
  \label{sec: 2d_cluster}
-    Although 1D networks are great to have a general idea about the data, neurons in 1D maps have maximum two neighbours, which causes some limitation in the results.
-    In 2D networks, each neuron has two to six neighbours, which allowed them to to capture a whole picture of the complicated relations in the input data.
-    Therefore, we created $10\times10$ 2D networks to study the data in details.
-    As mentioned in previous sections, the size of SOMs are arbitrary and users must decide about it based on what their goals of using SOMs are.
-    In this section we chose $10\times10$ size despite that we knew, from the size of our input data, that most of the neurons would be empty.
-    Using 2D networks, we are mostly interested in the ability of the SOMs to showing underlying structure of the data rather than its clustering features.
+    Although 1D networks are helpful to give a general idea about the data, neurons in 1D maps have a maximum of two neighbours, which can limit the usefulness of the results.
+    In 2D networks, each neuron has two to six neighbours, which allows them to to capture a complete picture of the complicated relations in the input data.
+    Accordingly, we created $10\times10$ 2D networks to study the data in detail.
+    As mentioned in previous sections, the size of SOMs are arbitrary and must be decided by users based on their goals for use of the SOM.
+    In this section we chose $10\times10$ size despite knowing, from the size of our input data, that most of the neurons would be empty.
+    Using 2D networks, we are mostly interested in the ability of the SOMs to show the underlying structure of the data rather than its clustering features.
     \import{../sections/image_texts/}{all.tex}
-    Fig.~\ref{fig: all_derived_ones} shows the 2D SOM of M31 data.
-    Similar to the Fig.~\ref{fig: M31_net_1by14}, all the 10 regions are completely separated from each other in Fig.~\ref{fig: all_derived_ones}.
+    Fig.~\ref{fig: all_derived_ones} shows the 2D SOM of the M31 data.
+    Similar to Fig.~\ref{fig: M31_net_1by14}, all the 10 regions are completely separated from each other in Fig.~\ref{fig: all_derived_ones}.
     
-    Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} with very bright colour between their neurons, which presents that these two regions are very similar.
-    Considering the position of these two regions in M31 (Both of these regions are right on the edge of the star forming rings in the galaxy), similarity of these two regions were predictable.
-    Position of region 3 on the SOM is close to the position of regions 4 and 7, but with darker colour between the nodes. 
-    In Fig.~\ref{fig: regions in m31} it is clear that this region in M31 is closer to regions 4 and 7 than any other region, but it is on the outer side of the star forming ring.
-    Regions 5 and 6 are in their second neighbourhood on the SOM, with a medium gray colour between them.
-    These two regions are around the inner ring of the galaxy.
-    Regions 8 and 6 are both in the inner ring of M31, but region 6 is in the region with more star formation, which could be the main reason for their relative distance in the SOM in Fig.~\ref{fig: all_derived_ones}. 
+    Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} with a very bright colour between their neurons, indicating that these two regions are very similar.
+    Considering the position of these two regions in M31 (both right on the edge of the star forming rings in the galaxy), similarity of these two regions was predictable.
+    The position of region 3 on the SOM is close to the position of regions 4 and 7, but with a darker colour between the nodes. 
+    In Fig.~\ref{fig: regions in m31} it is clear that this region in M31 is physically closer to regions 4 and 7 than to any other region, but it is on the outer side of the star forming ring.
+    Regions 5 and 6 are in the second neighbourhood on the SOM, with a medium gray colour between them.
+    These two regions are physically located around the inner ring of the galaxy.
+    Regions 8 and 6 are both in the inner ring of M31, but region 6's location has more star formation, which could be the main reason for their relative distance in the SOM in Fig.~\ref{fig: all_derived_ones}. 
     
     Regions 1 and 9 are close to each other, and in the same side of the star forming ring. 
-    However, region 1 is in an area of the galaxy with less diffuse \halpha~emission than region 9, that might be the reason for their distances in SOM.
-    Region 2 is more distant from other regions in the galaxy, and placed in the star forming ring.
+    However, region 1 is in an area of the galaxy with less diffuse \halpha~emission than region 9, which might be the reason for their distances in SOM.
+    Region 2 is more distant from other regions in the galaxy and placed in the star forming ring.
     However, similar to regions 1 and 4, region 2 is located in an area of the galaxy with less diffuse \halpha~emission.
-    Therefore, place of region 2 in the SOM is more favoured towards regions 1 and 4. 
-    Region 10 is placed in the bulge of the galaxy, and its position on the SOM is isolated from all the other regions by a strip of a dark colours. 
+    Therefore, the place of region 2 in the SOM tends towards regions 1 and 4. 
+    Region 10 is in the bulge of the galaxy, and its position on the SOM is isolated from all the other regions by a strip of a dark colours. 
     
     In order to analyse effects of any input data on the final SOM, in the following we created SOMs from various subsets of data.
-    We compare results of the subsets with one another and with SOM created from all data in Fig.~\ref{fig: all_derived_ones}.
+    We compare results of the subsets with one another and with the SOM created from all data in Fig.~\ref{fig: all_derived_ones}.
 
     \subsection{Subsets}
     \label{sec: subsets}
-            For analysing subsets, we creating SOMs by using only PAHs data, as well as using all data except PAHs ones (Fig.~\ref{fig: PAHS_or_not_PAHs}).
+            For analysing subsets, we creating SOMs by using only PAH data, as well as using all data except the PAHs (Fig.~\ref{fig: PAHS_or_not_PAHs}).
              \import{../sections/image_texts/}{PAHS_or_not_PAHs.tex}
             Comparing the SOM from all data in Fig.~\ref{fig: all_derived_ones} with the SOMs in Fig.~\ref{fig: PAHS_or_not_PAHs} shows that the general position of regions in those networks are the same. 
             Region 10 is in one corner of all three networks.
             However, in Fig.~\ref{fig: all_derived_ones} and Fig.~\ref{fig: wt_pahs}, region 10 is isolated from the other regions, while in Fig.~\ref{fig: only_pahs}, region 10 is much less isolated and only shows complete dissimilarity with region 8.
-            Regions 9 and 10 are totally isolated in SOMs in Fig.~\ref{fig: wt_pahs}, but in Fig.~\ref{fig: only_pahs}, they are more similar to other regions.
+            Regions 9 and 10 are totally isolated in the SOMs in Fig.~\ref{fig: wt_pahs}, but in Fig.~\ref{fig: only_pahs}, they are more similar to other regions.
             In both SOMs in Fig.~\ref{fig: PAHS_or_not_PAHs}, there are dissimilarities between regions in M31 but in Fig.~\ref{fig: wt_pahs}, the colours are much darker than the ones in Fig.~\ref{fig: only_pahs}.
-            This indicates that there are more similarity between PAHs features from all 10 regions then the other input data.
+            This indicates that there is more similarity between the PAH features over all 10 regions than between the other input data.
             
-            We increased the dimension of input data in Fig.~\ref{fig: only_pahs} (PAH only data), gradually, by adding data from other quantities of galaxies to the input data. 
-            The order of adding data is the same as order of data in Fig.~\ref{fig: cor_all}, i.e. SOM in Fig~\ref{fig: inc_D_col3s}a was created from PAHs data and H$\alpha$ emission as input data, SOM in Fig~\ref{fig: inc_D_col3s}b created from PAHs, H$\alpha$ emission and [\sii] continuum as input data, and so on. 
+            We increased the dimension of input data in Fig.~\ref{fig: only_pahs} (PAH only data) gradually, by adding other quantities to the input data. 
+            The order in which data were added is the same as the order in Fig.~\ref{fig: cor_all}, i.e. the SOM in Fig~\ref{fig: inc_D_col3s}a was created from PAH and H$\alpha$ emission as input data, the SOM in Fig~\ref{fig: inc_D_col3s}b created from PAHs, H$\alpha$ emission and [\sii] continuum, and so on. 
             \import{../sections/image_texts/}{col3byall.tex}
             
-            SOM algorithm assigns random weight to each network, that causes the overall position of regions in networks (even with the same input data) changes in each run of the algorithm.
-            However, the position of each region regarding to other regions changes dramatically only because of the new sets of input data is given to the algorithm (assuming all the initial values for the run are intact).
+            The SOM algorithm assigns a random weight to each network that causes the overall position of regions in networks (even with the same input data) to change in each run of the algorithm.
+            However, the position of each region relative to other regions changes dramatically only when the new sets of input data are given to the algorithm (assuming all the initial values for the run are unchanged).
             In all SOMs in Fig~\ref{fig: inc_D_col3s}, region 10 is located in the corner of the SOMs, but in  Figs~\ref{fig: inc_D_col3s}a,~\ref{fig: inc_D_col3s}d,~\ref{fig: inc_D_col3s}g,~\ref{fig: inc_D_col3s}k, and ~\ref{fig: inc_D_col3s}l, it is placed in the left side of the SOMs and in the others it is in the right side of the networks.
-            In our discussion on differences between networks, we do not address the changes in the network due to initialization of the SOM algorithm and only consider the effect of changing the input data in the network.
+            In our discussion on differences between networks, we do not address the changes in the network due to initialization of the SOM algorithm and only consider the effect of changing the input data.
             
-            Comparing Figs.~\ref{fig: inc_D_col3s}a to ~\ref{fig: inc_D_col3s}o shows that adding \halpha~emission data to PAHs features causes regions 9 and 10 become isolated. 
-            Increasing dimension of the input data makes region 10 more isolated.
-            The relative position of regions 4 and 7 stays the same with increasing the input data. 
-            Adding SPIRE 350, 500~$\mu$m emission and L$_{\rm dust}$ do not have any adequate effect on the networks.
+            Comparing Figs.~\ref{fig: inc_D_col3s}a to ~\ref{fig: inc_D_col3s}o shows that adding \halpha~emission data to PAH features causes regions 9 and 10 become isolated. 
+            Increasing the dimension of the input data makes region 10 more isolated.
+            The relative positions of regions 4 and 7 stay the same with increasing the dimensions of the input data. 
+            Adding SPIRE 350, 500~$\mu$m emission and L$_{\rm dust}$ does not have any obvious effect on the networks.
             Stellar mass, total gas mass, dust mass and RHI data alternate the distances between neurons effectively, but it seems that adding SFR, L$_{\rm TIR}$ and metallicity data revoke those changes.
             
-            We generated other subsets of the data based on the results in Figs~\ref{fig: inc_D_col3s} to study effects of the input data on SOMs, further.
-            Subset 1, that are listed in Tab.~\ref{tab: subset1}, includes all the inputs data except data from stellar mass.
-            Tab.~\ref{tab: subset5} is the list of data that were used in a subset 2, which includes all data except the fact that instead of the individual PAH fluxes we added them all together and have total PAH flux. 
-            For subset 3 ( in Tab.~\ref{tab: subset6}), we removed SPIRE 250 and 500~$\mu$m from subset 2.
-            Figs.~\ref{fig: subset1} --~\ref{fig: subset6} show SOMs that are created by data from subsets 1 to 3, respectively.
-            The rest of the subsets are discussed in Appendix.~\ref{sec: app_2d_soms_SOMN}.
+            We generated other subsets of the data based on the results in Figs~\ref{fig: inc_D_col3s} to further study the effects of the input data on SOMs.
+            Subset 1, listed in Tab.~\ref{tab: subset1}, includes all the input data except stellar mass.
+            Tab.~\ref{tab: subset5} lists data used in subset 2, which includes all data except that the PAH fluxes are combined into a total PAH flux. 
+            For subset 3 ( in Tab.~\ref{tab: subset6}), SPIRE 250 and 500~$\mu$m were removed from subset 2.
+            Figs.~\ref{fig: subset1} --~\ref{fig: subset6} show SOMs created by data from subsets 1 to 3, respectively.
+            The remaining subsets are discussed in Appendix.~\ref{sec: app_2d_soms_SOMN}.
 
-            The results from Table~\ref{tab: subset1} is shown in Fig.~\ref{fig: subset1}. 
-            In this SOM compared with the SOM from all the data in Fig.~\ref{fig: all_derived_ones}, regions 1 and 9 are closer to region 10. 
+            The results from Table~\ref{tab: subset1} are shown in Fig.~\ref{fig: subset1}. 
+            In this SOM, compared with the SOM from all the data in Fig.~\ref{fig: all_derived_ones}, regions 1 and 9 are closer to region 10. 
             Regions 1 and 9 are the ones with lowest stellar mass values, and region 10 has the highest stellar mass value among those 10 regions. 
             Since the differences in the amount of stellar mass was one of the most distinct differences between these three regions, removing stellar mass from input data reduced the distance between these regions.
-            Regions 5, 6 and 8 are in the same relative distance from each other as in Fig.~\ref{fig: all_derived_ones}, but they all are closer to the position of region 10.
+            Regions 5, 6 and 8 have the same relative distance from each other as in Fig.~\ref{fig: all_derived_ones}, but they all are closer to the position of region 10.
             Distance between regions 2 and 3 is reduced but in the meantime the colour between them became darker.
 
             \import{../sections/tables/}{subset1.tex}
             \import{../sections/image_texts/}{subset1.tex}
 
-            Changing from separate values for each PAH features to a single value for the total PAHs caused small changes to the SOM map in Fig.~\ref{fig: subset5} compare to the one in Fig.~\ref{fig: all_derived_ones}. 
-            Distance between the relative position of regions 6 and 8 increased significantly, while the position of region 2 moved closer to the positions of regions 4 and 7.
-            The winner neurons for regions 3 and 5 moved towards each other, but the colours between them became much more darker. 
+            Changing from separate values for each PAH features to a single value for the total PAHs caused small changes to the SOM map in Fig.~\ref{fig: subset5} compared to the one in Fig.~\ref{fig: all_derived_ones}. 
+            The distance between the positions of regions 6 and 8 increased significantly, while the position of region 2 moved closer to the positions of regions 4 and 7.
+            The winner neurons for regions 3 and 5 moved towards each other, but the colours between them became much darker. 
 
             \import{../sections/tables/}{subset5.tex}
             \import{../sections/image_texts/}{subset5.tex}
 
-            Fig.~\ref{fig: subset6} shows the SOM generated from data that are listed in Tab.~\ref{tab: subset6}, which includes all the data from Tab.~\ref{tab: subset5} except SPIRE 250 and 500~$\mu$m emission.
+            Fig.~\ref{fig: subset6} shows the SOM generated from data listed in Tab.~\ref{tab: subset6}, which includes all the data from Tab.~\ref{tab: subset5} except for  the SPIRE 250 and 500~$\mu$m emission.
             Although for most of the regions we see the changes in their positions, the colours between neurons changes as well. 
             %Therefore, we can conclude that these changes caused by the differences in the initial assigned weights.
-            The distance between the positions of the regions 4 and 2 are increased.
-            The same happened for distances between regions 7, 3 and 6.
-            In both cases, SPIRE 250 and 500~$\mu$m emission of these regions are similar to one another, and removing these two parameters from input data moved the positions of the regions further from each other. 
+            The distance between the positions of the regions 4 and 2 is increased as are the
+            distances between regions 7, 3 and 6.
+            In both cases, SPIRE 250 and 500~$\mu$m emission of these regions are similar to one another, and removing these two parameters from the input data moved the positions of the regions further from each other. 
             \import{../sections/tables/}{subset6.tex}
             \import{../sections/image_texts/}{subset6.tex}
             
@@ -120,7 +120,7 @@
             %     This type of the prediction from SOM networks can be used to predict observation values in observational proposals or can be used in pre-phase studies of the big missions such as the James Webb Space Telescope (JWST) and LLST.
                 
 
-    \subsection{Testing networks using M101 data}
+    \subsection{Testing networks using M101 observations}
     Another application of SOM for nearby galaxies is to apply the trained networks on the data from other galaxies in order to predict properties of the observed regions in them. %%eh
     Therefore, we generated an SOM using data from M31 that hold in common with M101 data (Fig.~\ref{fig: subset9}a). 
     \cite{Dim15} compared PAHs in M31 with those from H {\sc II} regions in M101, and showed the similarity between PAHs from these two galaxies (For more detail see \cite{Dim15} and \cite{Gordon08}).
