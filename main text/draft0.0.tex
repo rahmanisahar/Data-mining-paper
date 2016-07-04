@@ -38,8 +38,8 @@
 \newcommand \Spitzer {{\it Spitzer }}
 \newcommand \GALEX {GALEX }
 \newcommand \Herschel {{\it Herschel }}
-\newcommand \sii {S~{\textsc II}} 
-\newcommand \oiii {O~{\textsc III}} 
+\newcommand \sii {[S~{\textsc II}]} 
+\newcommand \oiii {[O~{\textsc III}]} 
 \newcommand \hi {H~{\textsc I}\ }
 
 \newcommand \aaj {A\&A}
@@ -162,28 +162,42 @@ galaxies: individual: M31, galaxies: spiral, galaxies: star formation, galaxies:
 %----------------------------------------------------------------------------------------
 \section{SUMMARY}
 \label{sec: summary}
-Self-organizing maps can be used to explore hidden subgroups and underlying structure of the data.
-In this project we investigated applications of the Self-organizing maps in data from nearby galaxies.
-We utilized the SOM method to study data from two well-studied galaxies; M31 and M101.
-Data from nearby galaxies can be clustered in various networks with different sizes/dimensions based on the information needed from the data. 
-A network with one dimension and a few neurons, can be used for general classification, while for more detailed clustering, a higher number of neurons should be used.
 
-Using smaller-sized self-organizing maps, the M31 data were clustered in 2 major groups; we found correlations that could not have otherwise been seen without clustering.
-For example in Sec.~\ref{sec: inside_the_2_neurons}, we found that six of the regions in M31 create a subgroup of data, that have lower amount of PAHs flux.
-Flux from the PAHs features in these regions highly anti-correlated with \halpha~emission despite that considering Flux from the PAHs features in all regions highly correlates with SFR.
-Our analyses of smaller-sized networks showed that using this method we can find hidden subgroups in data to extend our knowledge of inside the galaxies.
+We present results of studying spatially resolved regions in nearby galaxies using 
+The Self-organizing maps both cluster data and show relative distance between each cluster. 
+Therefore, we utilized it to find hidden subgroups in the data as well as finding relation between those groups.
+
+Using smaller-sized self-organizing maps, the M31 data are clustered into two major groups, which lead us to correlations that could not have otherwise been seen without clustering.
+We found that six of the regions in M31 create a subgroup of data, that have relatively lower amount of Mid- and far-infrared emission.
+PAH fluxes in these regions are highly anti-correlated with \halpha, \sii, \oiii~and IRAC 5.8~$\mu$m emission, stellar mass and RHI.
+These anti-correlations are insignificant when data from the whole galaxy are considered.
+We discussed possible reasons for these anti-correlations and argued that the most probable reason to PAHs anti-correlate with optical emission and RHI is having harder radiation.
+Harder radiation makes the size of H {\sc II} regions bigger and the size of PDRs smaller, which cause more \halpha~emission and less PAHs, respectively.
+
+PAHs in clustered data also show anti-correlation with stellar mass.
+We discussed the possibility of that higher stellar mass might destroy PAHs and as a result we see anti-correlation between them.
+However, we did not find any correlation between 8/24~$\mu$m emission, as a tracer of PAH abundance, and stellar mass.
+Unlike previous studies, we also did not find any correlation between 8/250~$\mu$m emission and stellar mass. 
+This results show that PAHs in the clustered regions in M31, do not heated by old stellar populations.
 
 In the maps with larger sizes, networks can be used to illustrate the relative relations of the regions with one another.
 We found the relative similarity between M31 regions, by varying the size of networks.
 A one-dimensional network with 14 neurons was needed in order to
-separate all 10 regions; we concluded that some of the region in M31 (e.g. regions 4 and 7) are very similar.
-A two-dimensional networks provide us a more complete picture of the data.
-Using these networks, we show a relative relations between regions in M31.
+separate all 10 regions; we concluded that some of the region in M31 (e.g. regions 4 and 7) have very similar properties.
 
-We introduced self-organizing maps as a method that can be used to predict the amount of various quantities based on the relative positions of the regions in the networks.
-By converting the relative distance between regions to the probability distribution function, we could predict unobserved/unmeasured properties of the galaxies with 10 per cent uncertainty.
+A two-dimensional networks provide us a more complete picture of the data.
+We created various subsets from input data and generated different networks which helped us to show a relative relations between regions in M31 more clearly.
+We showed that region 10 always become isolated in networks, except when we only used PAHs data to create a network.
+In that network region 10 blends more with other regions and only shows differences with data from region 8.
+These results suggest that the PAHs in all 10 regions have almost the same properties.
+
+% We introduced self-organizing maps as a method that can be used to predict the amount of various quantities based on the relative positions of the regions in the networks.
+% By converting the relative distance between regions to the probability distribution function, we could predict unobserved/unmeasured properties of the galaxies with 10 per cent uncertainty.
 We also applied the SOMs from M31 data to M101 data and found regions with similar properties in both galaxies placed in close regions in the SOMs.
 We show that using this ability of the SOM, we can predict properties of regions in other nearby galaxies very fast.
+We should note that we created our networks using values for 26 quantities from 10 regions in M31, which does not consider as a "big sample".
+Increasing dimension of the data and the number of regions would help to have more reliable networks.
+In future we can apply these networks on data from other nearby galaxies (e.g. M33 and M83), and learn about the properties of regions on those galaxies.
 
  
 
