@@ -5,35 +5,106 @@
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
-\section{Introduction}
+\section{Introduction} %%( I am not really happy with this introduction but it is the best I can have for now:/ )
 %General information about galaxies %(Maybe it is too generic?!!)
-Inside each galaxies are millions of stars and large amount of dust and gas, which all have affect on each others' formation, evolution and extinction.
-Galaxies are an active and complicated systems, that are constantly changing.
-There are extensive amount of studies about correlations between galaxies' emission and their physical properties, both observationally and theoretically %(Some references here). 
-With all these studies our knowledge about the underlying processes in formation and evolution of galaxies expands every day, but the details of how these process work are still undetermined.
+% Inside each galaxy, there are millions of stars and large amount of dust and gas, which all affect on each others' formation, evolution and extinction.
+% Galaxies are an active and complicated systems, that are constantly changing.
+% There are extensive amount of studies about correlations between galaxies' emission and their physical properties, both observationally and theoretically %(Some references here). 
+% These studies expands our knowledge of the underlying processes in formation and evolution of galaxies every day, but the details of how these process work are still undetermined.
 
 % Nearby galaxies and their importance 
-Nearby galaxies plays an important role in improving studies about galaxies' formation and evolution.
-These galaxies are close enough to be able to observe various regions inside the galaxies in details.
-As a result, many studies were devoted to find relations between physical properties of the galaxies in both spatially resolved regions and galaxies as a whole %(Some more references here)
-, and many others used these results to analyze data from high-redshift galaxies.%(Some more references here)
-The amount of the data that is acquired from nearby galaxies is increasing daily.
-Advances in technology helps to both observe and store enormous amount of data from the sky.
-Telescopes and surveys gatherer data from nearby galaxies in different wavelengths and from these data we can measure physical properties of galaxies (e.g. stellar mass, star formation rate (SFR), dust mass, gas mass). %(Some more references here)
+Nearby galaxies play an important role in learning about galaxies' formation and evolution.
+These galaxies are close enough to be able to observe various regions inside them in detail.
+As a result, many studies are devoted to find relations between physical properties of the galaxies in both spatially resolved regions and galaxies as a whole%(Some more references here)
+, and many others use these results in analyzing data from high-redshift galaxies. %(Some more references here)
+The amount of data that is acquired from nearby galaxies is increasing daily.
+Advances in technology helps to both observe and store enormous amount of data from sky.%The sky?! 
+Telescopes and surveys gather data from nearby galaxies in various wavelengths and from these data we can measure physical properties of galaxies (e.g. stellar mass, star formation rate (SFR), dust mass, gas mass)~\citep[e.g.][]{Calzetti07,Dale09,Eskew12}.
 
-M31, with distance of $\sim 0.78$~Mpc~\citep{McConnachie05}, is one of the closest spiral galaxies to the Milky way and provide us very unique view of inside of a spiral galaxy.
-Therefore,
+% A little bit about M31 and previous studies in M31.
+The Andromeda galaxy (M31), with a distance of $\sim$0.78~Mpc~\citep{McConnachie05}, is the closest spiral galaxy to the Milky Way.
+Images of this galaxy provide us a detail view of inside of a spiral galaxy from distance.
+M31 was a target of many telescopes (e.g. {\it Hubble} \citep{Dalcanton12}, \Spitzer\citep{Wener04}, \Herschel\citep{Pilbratt10} space telescopes) and was a subject of many more studies. % \citep[e.g.][and references therein]{Barmby06, Gordon06, Azimlu11, Sanders12, Dim15, Rahmani16}. 
 
-% A little bit about PAH and other properties of nearby galaxies?!
+\cite{Barmby06} used data from Spitzer Infrared Array Camera \citep[IRAC;][]{Fazio04} to how evidence of Polycyclic Aromatic Hydrocarbons (PAH)s in interstellar medium (ISM) of M31.
+%or to study the stellar and nonstellar mid-infrared (MIR) emission in M31. ?! 
+Using the mid-IR data from Multiband Imaging Photometer for Spitzer (MIPS), \cite{Gordon06} studied the morphology of the dust in M31.
+\cite{Azimlu11} and \cite{Sanders12} catalogued and studied H {\sc II} regions of M31.
+\cite{Draine14, Mattsson14, Viaene14, Smith12} and~\cite{Fritz12} used \Herschel data to study dust in the ISM of the galaxy.
+Properties of the current stars in the galaxy were studied by~\cite{Tamm12} and~\cite{Massey07}. %%%And some from PHAT survey
+\cite{Rahmani16, Ford13} and \cite{Tabatabaei10} measured the SFR in M31 in order to study star formation laws, and \cite{Dim15} and \cite{Kapala15} used spectroscopic data the galaxy to study PAHs and other line emission in the ISM.
 
-
+Although all these studies measured some properties of M31, or answered specific scientific questions about this galaxy, we still do not have a complete picture of undergoing processes in the galaxy.
+The amount of the observed data and measured quantities of M31 makes this galaxy a suitable target for a knowledge discovery and data mining study.
+Knowledge discovery and data mining methods are designed to extract hidden information from data and are tested in many astronomical studies.
+However, to the best of our knowledge, this study is the first study that uses a data mining method on data from nearby galaxies. %%% ehh
 
 % data mining and clustering in general; when we have so many data and we want to map them
-\cite{Ball10} did an extensive review of data mining and machine learning and their usage in astronomy.
+\cite{Ball10} wrote an extensive review of data mining and machine learning, and their usage in astronomy.
+A data mining algorithm learns about data from sets of trainings, which can be supervised or unsupervised.
+The supervised training refer to methods that use examples of the desired output to learn about input data and are valuable tools to classify data with known target values.
+On the contrary, the unsupervised methods train without any prior knowledge of output results. 
+They work solely based on the underlying structure of input data.   
+The unsupervised methods are very useful tools in knowledge discovery studies on input data, which we do not have any insight of them (or when we want to make sure that we did not miss any valuable information in our previous studies). %%% ehh to after or part.
 
-%SOM is a good method for knowledge discovery projects;
-%SOM in Astronomy and mention we do not have any SOM in nearby galaxies
-%this project 1 M31 and its extensive data
+%SOM
+One the most tested methods of data mining in astronomy is the artificial neural networks (ANNs)~\citep[e.g.][and references therein]{ Hossein14,Hossein16}.
+ANNs are designed to work in the same way that the neurons work in a human brain.
+They are networks of interconnected neurons (nodes), which all of the connections are weighted.
+These networks are used to study about nonlinear and complex relations between input and output data.
+%These relations can be applied to the new sets of data with similar feature
+
+One of the most well-known unsupervised neural network in astronomy is a Kohonen self-organizing map (also called self-organizing map, or SOM).
+SOMs map and visualize a complex and nonlinear high dimension data~\citep{Kohonen82} and show simple geometrical relationships in non-linear high dimensional data~\citep{Kohonen98}.
+The result of a SOM is a 1D or 2D network of neurons, which shows the positions of clusters and their relative distance.
+Since 1990s, many studies utilized SOMs for object classification and clustering (e.g. classifying quasars' spectra, star/galaxy classifications, gamma-ray bursts clustering and classification of light curves), and photometric redshift estimations~\citep[e.g.][]{Odewahn92, Hernandez94, Murtagh95, Maehoenen95,Scaringi09,Geach12,Fustes13,Meusinger16,Rahmani16b} %%% Why I cannot add submitted in front of the high-z paper
+
+ %%add a little bit about PAHs in M31, dim15, drain14 and refs. therein. talk about what questions are still remained unanswered.
+The purpose of this project is to have a new insight into nearby galaxies using M31 data with focusing on relations between PAHs and other properties of the galaxy.
+There are very few studies on relations between properties of M31 with its PAH features.
+To fulfill this purpose, an unsupervised data mining method is the most suitable choice.
+\cite{Cesarsky98} studied PAH spectra in four regions in M31 and showed that PAH features in M31 differ from the PAH spectra in other galaxies; in the way that there are  week or no 6.2 - 8.6~$\mu$m with enhanced 11.2~$\mu$m emission in M31 spectra. 
+However, \cite{Dim15} by using {\it Spitzer}/Infrared Spectrograph~\citep[IRS,][]{Houck04b} observations indicate that the PAH spectra of M31 has the same features as spectra of other nearby star forming galaxies.
+Using MIR photometry data of M31,\cite{Barmby06} compared the observed 8~$\mu$m luminosity with other star formation indicators in the galaxy and found good agreements among them, and \cite{Draine14} found the PAH abundance in M31 is almost constant up to R$\sim 20$~Kpc.
+Therefore, using data mining techniques, we aim to study PAH features in more detail.
+
+K-means algorithm, SOMs, and hierarchical clustering are main unsupervised methods that are used in astronomical studies~\citep[e.g.][]{DAbrusco12, Aycha16}. %%add one or two more
+For both K-means and SOM algorithms, the user must define the number of clusters, and the algorithms decide how to separate the data into desired number of the clusters.
+In the hierarchical clustering method, the user must define dissimilarity between the groups, the algorithm combines (or divides) existing groups based on their dissimilarity and creates a hierarchical structure. 
+Comparing SOMs, K-means and hierarchical clustering shows that in some cases hierarchical clustering method miss-classifies the data~\citep[][and references therein]{Mangiameli96}.
+We chose SOM method over K-means due to the fact that SOMs not only cluster data, but also show similarity and dissimilarity between each cluster.
+Therefore, we can cluster our sample data and study the underlying structure, simultaneously.
+
+%this project 1 M31 and its extensive data we do not have any SOM in nearby galaxies
+In this project we apply SOM algorithm on M31 data, and trained 1D and 2D networks.
+Using smaller networks we study the properties of the clusters and investigate relations between PAH features with other quantities in M31.
+We create 2D SOMs from subsets of data as well as all available data, which helps us to understand the effect of each input in the position of the clusters in the SOM.%, which leads to prediction of the unmeasured quantities in a galaxy.
+We apply 2D trained networks on data from the Pinwheel Galaxy (M101), which is a spiral nearby galaxy, to check weather that all the spiral nearby galaxies have similar properties,
+If our hypothesis is correct, we should be able to see that regions in M31 and M101 with the same positions in the SOM have the same properties.
+
+In Section $\S$~\ref{Sec: data_SOMN}, we present the sample data from M31 and M101 that we use in this study. 
+We describe the SOM method in Section $\S$~\ref{sec: method}. 
+The results of the 1D SOM networks and studying PAHs in M31 is presented in Section $\S$~\ref{Sec: 1d_cluster}.
+In Section $\S$~\ref{sec: 2d_cluster}, we present the result of 2D SOM networks and how we use them to extract information about other galaxies.
+In Section $\S$~\ref{sec: summary}, we summarize our results and discuss potential future work in this subject.
+
+
+
+
+%SOM in Astronomy continued.
+% Large spectroscopic surveys have made available integrated spectra of millions of galaxies.
+% These integrated spectra combine the light of billions of individual stars and nebulae within a galaxy, and
+% finding patterns and common characteristics between galaxies can be a complex task.
+% \citet{In12} introduced a new clustering tool based on the SOM method for analyzing these large datasets.
+% They used $\sim 60000$ spectra from the Sloan Digital Sky Survey \citep[SDSS;][]{Abazajian09} to test their tool, and created very large SOMs to analyze the type of spectra/objects.
+% They also generated SOMs from quasars' spectra in order to find unusual types of spectra. 
+% Later, \citet{Meusinger16} used these SOMs and updated data from SDSS and other surveys to find a new class of quasars.
+% The other application of SOMs is to find outliers or errors in the data.
+% \citet{Fustes13} produced a package based on SOM to classify spectra from the GAIA survey that were previously classified as ``unknown'' by the SDSS pipeline. This package can recognize an astronomical object from instrumental errors, and then classify the object based on its spectrum.
+
+%Compare diff methods and say why we chose SOM!
+
+
 
 
 

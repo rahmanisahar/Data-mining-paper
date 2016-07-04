@@ -5,92 +5,155 @@
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
 %----------------------------------------------------------------------------------------
- \section{2D SOMs}
- Although 1D networks are great to have a general idea about the data, they are not showing a whole picture. 
-        Therefore, we created $10\times10$ 2D networks to study the data in details.
- Since in 1D SOMs, each neuron has maximum two immediate neighbours, 1D SOMs can't provide show complicated relations in data.
-However, 
-            \subsubsubsection{Subsets}
-            In subset 0 presented the derived values and values that had not been used to create any of derived values.
-            Fig.~\ref{fig: all_derived_ones} shows the SOM and the weight plane of each input data from subset 0.
-            Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} and in the second neighbourhood of each other, with very bright light between their nodes which represents that weight of these nodes are similar to each other. 
-            The positions of these two regions in the galaxy are really close and they both are on almost same distance from the star forming ring in galaxy.
-            Both of these regions are right on the edge of the star forming rings in the galaxy. 
-            Position of the region 3 on the SOM is close to the position of the regions 4 and 7, but with darker colour between the nodes. 
-            This region in M31 is close to regions 4 and 7 but on the outer side of the star forming ring.
-            \import{../sections/image_texts/}{all.tex}
-            Regions 5, 8 and 6 are close to each other on the SOM.
-            These three regions are around the inner ring of the galaxy.
-            Since region 5 is right outside the inner rings whereas regions 6 and 8 are in inner part of the inner ring, this region has more distance and more weight from the regions 6 and 8.
-            Regions 1 and 9 are close to each other and in the end side of the star forming ring. 
-            Region 2 is more distant from other regions in the galaxy. 
-            However, it is right out side the star forming too. 
-            Therefore, its place in SOM somehow is close to the positions of the regions 1,3 and 9.
-            The weights between region 2 and the other three regions are relatively high, due to fact that the region 2 is basically placed on the opposite side of the galaxy. 
-            Region 10 is placed in the bulge of the galaxy, and its position on the SOM is isolated from all the other regions. 
-
-            In order to analyse affect of any input data on the final SOM, we created SOMs from various subsets of data and compare their results with one another and with SOM created from all data listed in subset 0.
-            %%\subsection{Increasing dimension of input data one by one}
-            We started the analysis by creating SOMs using only PAHs data, and using all data from subset 0 except PAHs ones(Fig.~\ref{fig: PAHS_or_not_PAHs}). 
-            Then, we increased the dimension of PAH only data gradually by adding data from subset 0 to it, i.e. the first map in Fig~\ref{fig: inc_D_col3s} was created from PAHs data and H$\alpha$ emission, the second one was created from PAHs, H$\alpha$ emission and [\sii] continuum, and so on. 
-
-        \import{../sections/image_texts/}{col11by26.tex}
-        
-
-
-         We then generated some sub-samples of the data based on the weight planes in the Figs.~\ref{fig: all_derived_ones} to~\ref{fig: subset7}.
-        We first removed data with larger weights (with darker colours) in most of the neurons, one at a time (see tables~\ref{tab: subset1} -~\ref{tab: subset4}).
-        For subset sample 1 from Table~\ref{tab: subset1}, we used all the values from subset 0 excluding data from stellar mass. 
-        We removed IRAC 5.7 $\mu$m; [\sii] continuum and [\oiii] continuum; PAH8.3 $\mu$m, PAH12.0 $\mu$m, PAH17.0 $\mu$m, [~\oiii] continuum, stellar mass and metallicity from subset 0, and generated subset samples 2 to 4, respectively (Tables~\ref{tab: subset2} to~\ref{tab: subset4}).
-        Table~\ref{tab: subset5} shows the list of data that were used in a subset sample 5, which is data from subset 0 except the fact that instead of the individual PAH fluxes we added them together and have total PAH flux. 
-        For subset sample 6 (Table~\ref{tab: subset6}), we removed SPIRE 250 and 500~$\mu$m, and for subset sample 7 (Table~\ref{tab: subset7}) we removed [\sii] flux, SPIRE 250 and 500~$\mu$m and TIR emission from subset sample 5.
-        Figs.~\ref{fig: subset1} to~\ref{fig: subset7} show SOM and input data weight planes created from subset samples 1 to 7, respectively.
-
-        The left side of the Fig.~\ref{fig: subset1} shows SOM results from Table~\ref{tab: subset1}. 
-        In the SOM map, regions 1 and 9 are closer to region 10. 
-        The regions 1 and 9 are the ones with lowest stellar mass, on the other side region 10 has the highest stellar mass. 
-        Since the stellar mass was one of the most distinct differences between these regions, removing stellar mass from input data reduced the distance between these regions.
-        Regions 5, 6 and 8 are in the same relative distance from each other, but they all are closer to the position of the region 10.
-        Distance between regions 2 and 3 is reduced but in the meantime the colour between them became darker.
-
-        \import{../sections/tables/}{subset1.tex}
-        \import{../sections/image_texts/}{subset1.tex}
-
-%\subsubsection{subset4}
-     
-
-        Changing from separate value for each PAH to a single value for the total PAH, caused small changes to our the SOM map (Fig.~\ref{fig: subset5}). 
-        Distance between the position of the regions 6 an 8 increased significantly, while the position of region 2 moved closer to the positions of the regions 4 and 7.
-        The winner neurons for the regions 3 and 5 are moved towards each other, but the colours between them became much more darker. 
-%\subsubsection{subset5}
-        \import{../sections/tables/}{subset5.tex}
-        \import{../sections/image_texts/}{subset5.tex}
-
-        Fig.~\ref{fig: subset6} shows the results from Table~\ref{tab: subset6}, which includes all the data from Table~\ref{tab: subset5} except fluxes from SPIRE 250 and 500~$\mu$m.
-        For most of the regions, although we see the changes in the positions, the colours between neurons changed, too. 
-        Which we can conclude that these changes are because of the different initial values in the weights.
-        However, the distance between the positions of the regions 4 and 2 increased.
-        The same happened for distance between regions 7, 3 and 6.
-        In both cases, flux values in SPIRE 250 and 500~$\mu$m for these regions are similar to each other, and removing these two parameters from input moved the positions of the regions further. 
-%\subsubsection{subset6}
-        \import{../sections/tables/}{subset6.tex}
-        \import{../sections/image_texts/}{subset6.tex}
-
-       
-%\subsubsection{subset7}
-\subsubsection{Prediction observing data using M31}
-       
-
-        
+ \section{Two dimensional self-organizing maps}
+ \label{sec: 2d_cluster}
+    Although 1D networks are great to have a general idea about the data, neurons in 1D maps have maximum two neighbours, which causes some limitation in the results.
+    In 2D networks, each neuron has two to six neighbours, which allowed them to to capture a whole picture of the complicated relations in the input data.
+    Therefore, we created $10\times10$ 2D networks to study the data in details.
+    As mentioned in previous sections, the size of SOMs are arbitrary and users must decide about it based on what their goals of using SOMs are.
+    In this section we chose $10\times10$ size despite that we knew, from the size of our input data, that most of the neurons would be empty.
+    Using 2D networks, we are mostly interested in the ability of the SOMs to showing underlying structure of the data rather than its clustering features.
+    \import{../sections/image_texts/}{all.tex}
+    Fig.~\ref{fig: all_derived_ones} shows the 2D SOM of M31 data.
+    Similar to the Fig.~\ref{fig: M31_net_1by14}, all the 10 regions are completely separated from each other in Fig.~\ref{fig: all_derived_ones}.
     
+    Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} with very bright colour between their neurons, which presents that these two regions are very similar.
+    Considering the position of these two regions in M31 (Both of these regions are right on the edge of the star forming rings in the galaxy), similarity of these two regions were predictable.
+    Position of region 3 on the SOM is close to the position of regions 4 and 7, but with darker colour between the nodes. 
+    In Fig.~\ref{fig: regions in m31} it is clear that this region in M31 is closer to regions 4 and 7 than any other region, but it is on the outer side of the star forming ring.
+    Regions 5 and 6 are in their second neighbourhood on the SOM, with a medium gray colour between them.
+    These two regions are around the inner ring of the galaxy.
+    Regions 8 and 6 are both in the inner ring of M31, but region 6 is in the region with more star formation, which could be the main reason for their relative distance in the SOM in Fig.~\ref{fig: all_derived_ones}. 
+    
+    Regions 1 and 9 are close to each other, and in the same side of the star forming ring. 
+    However, region 1 is in an area of the galaxy with less diffuse \halpha~emission than region 9, that might be the reason for their distances in SOM.
+    Region 2 is more distant from other regions in the galaxy, and placed in the star forming ring.
+    However, similar to regions 1 and 4, region 2 is located in an area of the galaxy with less diffuse \halpha~emission.
+    Therefore, place of region 2 in the SOM is more favoured towards regions 1 and 4. 
+    Region 10 is placed in the bulge of the galaxy, and its position on the SOM is isolated from all the other regions by a strip of a dark colours. 
+    
+    In order to analyse effects of any input data on the final SOM, in the following we created SOMs from various subsets of data.
+    We compare results of the subsets with one another and with SOM created from all data in Fig.~\ref{fig: all_derived_ones}.
 
+    \subsection{Subsets}
+    \label{sec: subsets}
+            For analysing subsets, we creating SOMs by using only PAHs data, as well as using all data except PAHs ones (Fig.~\ref{fig: PAHS_or_not_PAHs}).
+             \import{../sections/image_texts/}{PAHS_or_not_PAHs.tex}
+            Comparing the SOM from all data in Fig.~\ref{fig: all_derived_ones} with the SOMs in Fig.~\ref{fig: PAHS_or_not_PAHs} shows that the general position of regions in those networks are the same. 
+            Region 10 is in one corner of all three networks.
+            However, in Fig.~\ref{fig: all_derived_ones} and Fig.~\ref{fig: wt_pahs}, region 10 is isolated from the other regions, while in Fig.~\ref{fig: only_pahs}, region 10 is much less isolated and only shows complete dissimilarity with region 8.
+            Regions 9 and 10 are totally isolated in SOMs in Fig.~\ref{fig: wt_pahs}, but in Fig.~\ref{fig: only_pahs}, they are more similar to other regions.
+            In both SOMs in Fig.~\ref{fig: PAHS_or_not_PAHs}, there are dissimilarities between regions in M31 but in Fig.~\ref{fig: wt_pahs}, the colours are much darker than the ones in Fig.~\ref{fig: only_pahs}.
+            This indicates that there are more similarity between PAHs features from all 10 regions then the other input data.
+            
+            We increased the dimension of input data in Fig.~\ref{fig: only_pahs} (PAH only data), gradually, by adding data from other quantities of galaxies to the input data. 
+            The order of adding data is the same as order of data in Fig.~\ref{fig: cor_all}, i.e. SOM in Fig~\ref{fig: inc_D_col3s}a was created from PAHs data and H$\alpha$ emission as input data, SOM in Fig~\ref{fig: inc_D_col3s}b created from PAHs, H$\alpha$ emission and [\sii] continuum as input data, and so on. 
+            \import{../sections/image_texts/}{col3byall.tex}
+            
+            SOM algorithm assigns random weight to each network, that causes the overall position of regions in networks (even with the same input data) changes in each run of the algorithm.
+            However, the position of each region regarding to other regions changes dramatically only because of the new sets of input data is given to the algorithm (assuming all the initial values for the run are intact).
+            In all SOMs in Fig~\ref{fig: inc_D_col3s}, region 10 is located in the corner of the SOMs, but in  Figs~\ref{fig: inc_D_col3s}a,~\ref{fig: inc_D_col3s}d,~\ref{fig: inc_D_col3s}g,~\ref{fig: inc_D_col3s}k, and ~\ref{fig: inc_D_col3s}l, it is placed in the left side of the SOMs and in the others it is in the right side of the networks.
+            In our discussion on differences between networks, we do not address the changes in the network due to initialization of the SOM algorithm and only consider the effect of changing the input data in the network.
+            
+            Comparing Figs.~\ref{fig: inc_D_col3s}a to ~\ref{fig: inc_D_col3s}o shows that adding \halpha~emission data to PAHs features causes regions 9 and 10 become isolated. 
+            Increasing dimension of the input data makes region 10 more isolated.
+            The relative position of regions 4 and 7 stays the same with increasing the input data. 
+            Adding SPIRE 350, 500~$\mu$m emission and L$_{\rm dust}$ do not have any adequate effect on the networks.
+            Stellar mass, total gas mass, dust mass and RHI data alternate the distances between neurons effectively, but it seems that adding SFR, L$_{\rm TIR}$ and metallicity data revoke those changes.
+            
+            We generated other subsets of the data based on the results in Figs~\ref{fig: inc_D_col3s} to study effects of the input data on SOMs, further.
+            Subset 1, that are listed in Tab.~\ref{tab: subset1}, includes all the inputs data except data from stellar mass.
+            Tab.~\ref{tab: subset5} is the list of data that were used in a subset 2, which includes all data except the fact that instead of the individual PAH fluxes we added them all together and have total PAH flux. 
+            For subset 3 ( in Tab.~\ref{tab: subset6}), we removed SPIRE 250 and 500~$\mu$m from subset 2.
+            Figs.~\ref{fig: subset1} --~\ref{fig: subset6} show SOMs that are created by data from subsets 1 to 3, respectively.
+            The rest of the subsets are discussed in Appendix.~\ref{sec: app_2d_soms_SOMN}.
+
+            The results from Table~\ref{tab: subset1} is shown in Fig.~\ref{fig: subset1}. 
+            In this SOM compared with the SOM from all the data in Fig.~\ref{fig: all_derived_ones}, regions 1 and 9 are closer to region 10. 
+            Regions 1 and 9 are the ones with lowest stellar mass values, and region 10 has the highest stellar mass value among those 10 regions. 
+            Since the differences in the amount of stellar mass was one of the most distinct differences between these three regions, removing stellar mass from input data reduced the distance between these regions.
+            Regions 5, 6 and 8 are in the same relative distance from each other as in Fig.~\ref{fig: all_derived_ones}, but they all are closer to the position of region 10.
+            Distance between regions 2 and 3 is reduced but in the meantime the colour between them became darker.
+
+            \import{../sections/tables/}{subset1.tex}
+            \import{../sections/image_texts/}{subset1.tex}
+
+            Changing from separate values for each PAH features to a single value for the total PAHs caused small changes to the SOM map in Fig.~\ref{fig: subset5} compare to the one in Fig.~\ref{fig: all_derived_ones}. 
+            Distance between the relative position of regions 6 and 8 increased significantly, while the position of region 2 moved closer to the positions of regions 4 and 7.
+            The winner neurons for regions 3 and 5 moved towards each other, but the colours between them became much more darker. 
+
+            \import{../sections/tables/}{subset5.tex}
+            \import{../sections/image_texts/}{subset5.tex}
+
+            Fig.~\ref{fig: subset6} shows the SOM generated from data that are listed in Tab.~\ref{tab: subset6}, which includes all the data from Tab.~\ref{tab: subset5} except SPIRE 250 and 500~$\mu$m emission.
+            Although for most of the regions we see the changes in their positions, the colours between neurons changes as well. 
+            %Therefore, we can conclude that these changes caused by the differences in the initial assigned weights.
+            The distance between the positions of the regions 4 and 2 are increased.
+            The same happened for distances between regions 7, 3 and 6.
+            In both cases, SPIRE 250 and 500~$\mu$m emission of these regions are similar to one another, and removing these two parameters from input data moved the positions of the regions further from each other. 
+            \import{../sections/tables/}{subset6.tex}
+            \import{../sections/image_texts/}{subset6.tex}
+            
+            %Subsets, that some of them  are studied in this section, can be used to learn about the effect of each input on the map as well as they can be used to predict unobserved quantities in the galaxy.
+            
+            % \subsubsection{Prediction observing data using M31}
         
-        
-        
-        
-        %%What about M101; Is it going to behave in the same way! how corr matrix, look like for M101 data?
-   \subsection{ Validating networks using M101 data}
-      %%% 10x10 networks using subsets of data to create networks; make prediction based on results;
-      %%%% 10x10 checking data with M101 data
-      %%% Combine M31 + M101 data to make new prediction
-      
+            %     On SOMs we can see relations between the input data from each region regarding to the other regions.
+            %     These relations are shown by colour in SOMs, when white is 100 per cent similarity and black is 0 per cent similarity.
+            %     Therefore, we have the probability distribution of quantities of each values given data from other regions.
+            %     We can use these probability distribution to estimate missing data for regions. 
+                
+            %     To demonstrate this conclusion, we assumed the stellar mass value for region 1 is unknown.
+            %     Therefore, we need a SOM that are generated from all the inputs data for all regions except stellar mass (e.g subset 1 in Fig.~\ref{fig: subset1}).
+            %     \import{../sections/image_texts/}{sim_subset1.tex}
+            %     We found the shortest path between region 1 and the other regions and measure their relative similarity ($p_j$).
+            %     Assuming the maximum similarity is 100 per cent between two neurons (white colour), we multiply the similarity values along the shortest path between two regions to find $p_j$ between region 1 and the other regions (Fig.~\ref{fig: sim_subset1}).
+            %     In both Figs.~\ref{fig: subset1} and ~\ref{fig: sim_subset1} are clear that region 1 shows more similarity to regions 2 and 9 than the others and the most dissimilarity to region 8. 
+                
+            %     We measured probability of stellar mass given other quantities of the region 1 ($P(m_1\mid \forall_1)$) using Equation~\ref{equ: prob1}.
+            %     \begin{equation}
+            %     \label{equ: prob1}
+            %         P(m_1\mid \forall_1) = \sum_{j=2}^{10}p_j*m_j
+            %     \end{equation}
+            %     Where $m_1$ is the stellar mass of region 1 and $m_j$ is the stellar mass of region j (any other region).
+            %     We estimated the stellar mass to be $\sim1377$~M$\odot$ which is 10 per cent less than the observed values.
+            %     This type of the prediction from SOM networks can be used to predict observation values in observational proposals or can be used in pre-phase studies of the big missions such as the James Webb Space Telescope (JWST) and LLST.
+                
+
+    \subsection{Testing networks using M101 data}
+    Another application of SOM for nearby galaxies is to apply the trained networks on the data from other galaxies in order to predict properties of the observed regions in them. %%eh
+    Therefore, we generated an SOM using data from M31 that hold in common with M101 data (Fig.~\ref{fig: subset9}a). 
+    \cite{Dim15} compared PAHs in M31 with those from H {\sc II} regions in M101, and showed the similarity between PAHs from these two galaxies (For more detail see \cite{Dim15} and \cite{Gordon08}).
+    In this SOM, the same as the others, region 10 is separated from other regions in M31.
+    Regions 7 and 4 are close to each other with very light colours between their neurons, and the same as the other SOMs regions 6, 8, and 5 are close to each other, but with medium dark colour between them.
+    \import{../sections/image_texts/}{subset9.tex}
+    
+    We applied the SOM created using M31 data in Fig.~\ref{fig: subset9}a on M101 data (Fig.~\ref{fig: subset9}b).
+    Region 5 in M31 and region 8 in M101 and regions 6 in M31 and region 2 in M101 occupied neurons with white colour between them in the network in Fig.~\ref{fig: subset9}, which immediately suggest that these regions have similar properties. 
+    
+    Region 2 in M101 is a bright H {\sc II} region that is located at the end of the one of the M101 spiral arm (see Fig.~\ref{fig: regions in m101}). 
+    Region 6 in M31 is located near the inner ring of the galaxy (see Fig.~\ref{fig: regions in m31}).
+    Both regions have relatively low amount of PAHs emission and medium amount of the SFR regarding the other regions in the galaxy, which makes them very similar regions.
+    
+    Region 5 in M31 is in inner ring of the galaxy and it is one of two regions in M31 that are not an  H {\sc II} region.
+    region 8 in M101 is in a spiral arm of the galaxy.
+    Relatively low stellar mass, SFR and SPIRE band emission caused these two regions have close distance in the map.
+    In Sec.~\ref{Sec: 1d_cluster} we showed that regions 3 to 8 in M31 have similar properties, in Fig.~\ref{fig: subset9}b we see that regions 1 to 3 and 5 to 8 in M101 are located near regions 3 to 8 in M101. 
+    These regions all have medium or low amount of PAHs, dust and SFR compare to the rest of them.
+    
+    Region 7 in M101 is located in the nucleus of the galaxy and has relatively higher quantities than the other regions.
+    This region is located in the top right side of the network in Fig.~\ref{fig: subset9}, which is close to location of region 10 in the network.
+    Since the bulge of a spiral galaxy has different environment from its nucleus, region 7 in M101 and region 10 in M31 are not occupied the same neuron in the SOM, and have a medium grey colour between their neurons.
+
+    Region 1 in M101 is located near the nucleus of M101 (see Fig.~\ref{fig: regions in m101}), but has considerably lower values in all the quantities than the ones in region 7.
+    The lower values for fluxes of the PAH features, and relatively moderate amount of the SFR caused this region places between region 4 and 5 of M31 in the network. 
+    Fig.~\ref{fig: subset9}b shows that region 4 in M101 is separated itself from other regions and located between region 9 and 10 in M31.
+    \cite{Gordon08} showed that this region is a diffuse nebula in M101, with high amount of fluxes of PAH features. 
+    This region also shows a high amount of the SFR and the stellar mass, which describes why the location of region 4 from M101 in the SOM is close to regions 9 and 10 from M31.
+    
+    Knowing effect of each data entry on the networks From Section~\ref{sec: subsets}, we can have ideas about that data entry that we do
+    In this section we showed that we can use networks that are created by data from nearby galaxies, to study the properties of other galaxies in a fast way.
+    We should note that, since we normalized data before using them in the networks, we only see a relative properties of the regions.
+    Therefore, we need data from few regions in the galaxy to use this network cannot use these networks to learn about properties of a single region in other galaxies.
+    
+    
