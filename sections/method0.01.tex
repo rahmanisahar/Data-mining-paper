@@ -1,0 +1,86 @@
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Method
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\section{METHOD}
+\label{sec: method}
+ \subsection{Self Organizing Maps}
+ \label{sec: som}
+ The SOM is a clustering method which reduces the dimensionality of data, while preserving topological features ~\citep{Kohonen98}. 
+ The results of the SOM are shown with a map of neurons.
+ Each neuron has a fixed position in the map, and may contain one or more samples from input data, \boldit{V} $\in \Re^n$.
+ A weight vector,~\boldit{W} $\in \Re^n$, with the same dimension as the input data, is associated with each node and will be varied during the training process.
+ The process of creating an SOM  happens over a series of $N$ iterations.
+ In each iteration, the algorithm calculates the Euclidean distance for each node $j$ as  $D_j^2= \sum_{i=0}^{i=n} (V_i - W_i)^2$, and finds a neuron with $D_{j_, \rm min}}$. 
+ This neuron is the winner node and is calling Best Matching Unit (BMU). 
+ The weight vectors in the neighbourhood of the BMU will change according to the Kohonen learning rule (equation~\ref{equ: weight adj}). 
+  \begin{equation}
+            \label{equ: weight adj}
+            w(t+1)=w(t)+L(t) \times R(t) \times(v(t)-w(t))
+ \end{equation}
+where $L(t) = L_0 e^{(-t/\tau)}$ is the learning factor, which prevents the divergence of the SOM, and $R(t)=\exp(-\frac{D_j^2}{2r^t_{BMU}})$ is the influence rate, which determines how the weight of each node will change.
+Values for the number of neurons, $L(t)$ and $R(t)$ are arbitrary. 
+~\cite{Geach12} and \cite{Rahmani16b} demonstrate the algorithm of the SOM in more detail.
+
+
+     In order to create self-organizing maps, we used the {\sc MATLAB} neural network toolbox~\citep[NNT,][]{matlabtolbox}.
+     An SOM in {\sc NNT} can be created by the {\sc newsom} library which works in two phases, the ``ordering phase" and ``tuning phase" . 
+     Phase one is the ``ordering phase". 
+     This phase starts with maximum neighbourhood distance, and an initial high learning factor, usually 0.9, which is provided by the user. 
+     The ordering phase continues for the requested number of iterations.
+     At the end of the iterations, the learning factor reduces to the tuning phase learning factor and the neighbourhood distance reaches the value set by the user. 
+     The second phase is the ``tuning phase".
+     In this phase the neighbourhood distance is at its minimum, but learning factor decreases very slowly.
+     This minimum neighbourhood distance and slowly decreasing learning factor helps to fine tune the topology results and causes a more stable SOM. 
+     The number of iterations in this tuning phase must be much more than the number of iterations in ordering phase, to allow the tuning to happen slowly. 
+     We chose the number of epochs in the tuning phase to be 3 times more than the number of epochs in the ordering phase.
+     
+     To present our results, we use {\sc nnt}'s built-in plotting tool.
+     Specifically, we combine two of the plots in this tool: a hits map, which shows the number of times each neuron has become the winner (hits), and a distance map, which shows the distance between weight vectors of those neurons.
+     In the maps, the purple hexagonal shapes show the neurons. 
+     The distances are shown by the grey-scale colours: the darker the colour, the larger the distance between neurons.
+     Neurons with zero hits are left empty.
+     In Section~\ref{sec: mock_sample} we used {\sc newsom} to create SOMs from a mock sample to illustrate how this method works and how to interpret the results.
+
+     One feature of the SOM method is that there is no rule or restriction on number of clusters.
+     Users must decide the size of networks based on their data set and their usage of the results.
+     There has been few attempts to find a rule for restricting the number of neurons based on the input sample \citep[e.g.][]{Vesanto05}, but none of them are certain. 
+     We varied the size of SOMs from $1\times2$ to $50\times50$ to choose the most suitable size for our maps, and found that based on the size of our sample, the best size for the 2D SOMs was 10$\times$10. 
+     We created our final SOMs with initial values for number of iterations in ordering phase, ordering phase learning factor, tuning phase learning factor, and tuning phase neighbourhood distance of 500, 0.9, 0.02, and 1, respectively. 
+     %Also for each grid we created different SOM with different, learning factors, neighbourhood distances, and iteration numbers to find the optimize result for our sample.
+     %Based on our data we created our final SOMs with following initial values: number of iteration in ordering phase = 1000; ordering phase learning factor = 0.9; tuning phase learning factor= 0.02; and tuning phase neighbourhood distance to be 1.
+     %All the other parameters are default values in {\sc newsom} library and cannot be changed by the users. 
+     
+    
+\subsection{Mock sample}
+\label{sec: mock_sample}
+ 
+         \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{../images0.01/mock_sample.png}
+            \caption{SOM of the mock sample. The axes show the position of the neurons. Hexagonal shapes represent the neurons. The grey-scale colours show the differences between neuron weights, where white is the minimum difference and black is the maximum one.}
+            \label{fig: sample}
+        \end{figure}
+ 
+To show how self-organizing maps work, we created a mock sample containing only a few regions.
+Each sample had two properties: amount of dust and star formation rate, where the possible values were
+either 0 or 1 for low or high SFR, and 0 or 0.5 for a low or high amount of dust. 
+ We generated an SOM from the sample with a size of $10 \times 10$, using the method described in Sec.~\ref{sec: som}.
+ Fig. ~\ref{fig: sample} shows the SOM of the mock sample. 
+ The axes show the position of the neurons in a $10 \times 10$ network and the hexagonal shapes are the neurons.
+ 
+Using this method, as expected, we are able to divide the mock sample into 4 distinct groups: regions with high SFR and high dust content, regions with low SFR and high dust content, regions with high SFR and low dust content, and regions with low SFR and dust content. 
+The plot in the Fig.~\ref{fig: sample} clearly shows these divisions.
+In that plot, the upper part belongs to regions with low dust content, while the lower part belongs to regions with high dust content.
+The left part of the plot is where regions with low SFR belong and the right side is for high SFR regions.
+Grey to black colours show the border between regions.
+This network is considered to be a trained network, and can be used to cluster any new data set with similar entries.
+
+Having two regions with exactly the same values in all their quantities in the real world is almost impossible. 
+Therefore, one can find a network with a high number of neurons, which separates the input data completely, and clusters them into separate groups.
+However, if the input data has high similarity, the number of neurons must be much higher than the number of input samples to be able to separate the groups from each other. 
+Therefore, it is up to the user to decide the similarity or dissimilarity between the input data based on the number of neurons.  %PB: this praragraph is tricky for me to understand. Might need to try rewriting.
