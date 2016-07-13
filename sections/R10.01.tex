@@ -8,13 +8,12 @@
 \section{One dimensional self-organizing maps}
     \label{Sec: 1d_cluster}
 %Why 1D maps are useful
-    The purpose of  exploring the M31 data with 1D maps is to monitor the general behaviour of data. 
+    The purpose of  exploring the M31 data with 1D maps is to monitor the general behaviour of the data. 
     One-dimensional SOMs can have the minimum number of clusters, $1\times2$, up to the highest number of clusters possible.
     In a small sample like ours, smaller grid SOMs are very useful to find correlations that cannot be found without  clustering the data.
     On the other hand, larger grid 1D SOMs are a helpful tool to get quick insight into the data.
-%    In the following section, we are going to show how we used 1D SOMs to extract information from available data in M31.
-%Clustering
- %   \subsection{Clustering M31 data}
+
+    \subsection{Clustering M31 data}%I am not sure about it
 
         In order to monitor how the data behaves, we created SOMs with two to fourteen neurons (Fig.~\ref{fig: M31_nets_1d}).
         The $1\times2$ network (Fig.~\ref{fig: M31_net_1by2}) shows how the M31 data can be divided into two broad categories.
@@ -27,7 +26,7 @@
         The white colour between two left neurons suggests that the regions which occupy these neurons are very similar to each other, while the black colour between two right neurons indicates otherwise.
         
         %%%Talking about four right regions
-        \cite{Dim15} showed that regions 1, 2, 9, and 10 have higher PAH line fluxes compared to other regions (Fig. 5 in \cite{Dim15}). 
+        \cite{Dim15} showed that regions 1, 2, 9, and 10 have higher PAH line fluxes compared to other regions (Fig. 5 in \citealt{Dim15}). 
         %Regions 1, 2, and 9 are in the 10~Kpc ring and region 10 is located in the bulge of M31; however, regions 3 to 8 are located slightly out of the inner ring or the 10~kpc one.
         These regions also have relatively high intensities in all the mid-infrared and far-infrared bands and have high dust luminosity and dust mass.
         The higher values for these quantities could be the reason that these 4 regions become separated from the others in the $1\times2$ network.
@@ -46,21 +45,47 @@
        % In the $1\times14$ SOM (Fig.~\ref{fig: M31_net_1by14}), although all the regions were separated, but the colour between regions 10 to the other regions become completely dark.
        % This dark colour indicates that region 10 is absolutely different, which considering the fact that it is the only regions in the bulge of the galaxy, we expected to see such a distance between this regions and the others.
         
-        \begin{figure}
-            \subfloat[$1\times2$~network\label{fig: M31_net_1by2}]{
-             \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by2_all.png}
-             }
-            \hfill
-            \subfloat[$1\times3$~network\label{fig: M31_net_1by3}]{
-            \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by3_all.png}
-             }
-             \hfill
-            \subfloat[$1\times14$~network\label{fig: M31_net_1by14}]{
-             \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by14_all.png}
-             }%%% What should I do with this one! It doesn't look good visually
-            \caption{SOM of the M31 data from $1\times2$, $1\times3$~and $1\times14$~grids. The axes show the position of the neurons. The purple hexagonal shapes represent the neurons. The grey scale colours show the differences between weight of the neurons, with white as the minimum difference and black as the maximum. The numbers in the plot show the M31 regions located in each neuron.}
-            \label{fig: M31_nets_1d}
-        \end{figure}
+    \begin{figure}
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../images0.01/M31/1D/combine_1D_1by2_all.png}
+        \caption{$1\times2$~network}
+    \label{fig: M31_net_1by2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{../images0.01/M31/1D/combine_1D_1by3_all.png}
+         \caption{$1\times3$~network}
+        \label{fig: M31_net_1by3}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{../images0.01/M31/1D/combine_1D_1by14_all.png}
+        \caption{$1\times14$~network}
+        \label{fig: M31_net_1by14}
+    \end{subfigure}
+   \caption{SOM of the M31 data from $1\times2$, $1\times3$~and $1\times14$~grids. The axes show the position of the neurons. The purple hexagonal shapes represent the neurons. The grey scale colours show the differences between weight of the neurons, with white as the minimum difference and black as the maximum. The numbers in the plot show the M31 regions located in each neuron.}
+   \label{fig: M31_nets_1d}
+    \end{figure}
+    
+% \end{figure}
+%         \begin{figure}
+%             \subfloat[$1\times2$~network\label{fig: M31_net_1by2}]{
+%              \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by2_all.png}
+%              }
+%             \hfill
+%             \subfloat[$1\times3$~network\label{fig: M31_net_1by3}]{
+%             \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by3_all.png}
+%              }
+%              \hfill
+%             \subfloat[$1\times14$~network\label{fig: M31_net_1by14}]{
+%              \includegraphics[width=0.5\textwidth]{../images0.01/M31/1D/combine_1D_1by14_all.png}
+%              }
+%              %%% What should I do with this one! It doesn't look good visually
+%             \caption{SOM of the M31 data from $1\times2$, $1\times3$~and $1\times14$~grids. The axes show the position of the neurons. The purple hexagonal shapes represent the neurons. The grey scale colours show the differences between weight of the neurons, with white as the minimum difference and black as the maximum. The numbers in the plot show the M31 regions located in each neuron.}
+%             \label{fig: M31_nets_1d}
+%         \end{figure}
+        
         
         %%Network 1by14
         The network with 14 neurons, in Fig.~\ref{fig: M31_net_1by14}, is the first network that has no neuron occupied by more than one M31 region.
@@ -75,19 +100,19 @@
         The region 8 occupies the right-most neuron in this network, suggesting that this region has the most differences from region 10.
         
         
-    \subsection{Inside the 2 neuron network}%%% I will find better title for this subsection
-        %What is going on in this section
+    \subsection{Inside the 2 neuron network}
+    
         \label{sec: inside_the_2_neurons}
         Using self-organizing maps, we can identify hidden subgroups in our samples. 
         Each of these subgroups were separated from each other for a reason.
         This reason can vary from having higher values in some specific properties, as discussed in Sec.~\ref{Sec: 1d_cluster}, to some unknown correlations between data that cannot be seen in other groups or in the galaxy as a whole.
         To investigate the latter, we show in Fig.~\ref{fig: cor_cluster1} the Pearson correlation coefficients for the inputs from regions 3 to 8, which were clustered together in the $1\times2$ and $1\times3$ networks (see Figs.~\ref{fig: M31_net_1by2} and ~\ref{fig: M31_net_1by3}).
         
-        \begin{figure}
-        \includegraphics[width=0.5\textwidth]{../images0.01/cor_plots/M31_derived_3_to_8_core_plot_for_paper.pdf}%%% cut the white regions around the figure
+        \begin{figure*}
+        \includegraphics[width=\textwidth]{../images0.01/cor_plots/M31_derived_3_to_8_core_plot_for_paper.pdf}
         \caption{Same as Fig.~\ref{fig: cor_all}, but here we used data from regions grouped in the left sides of Figs.~\ref{fig: M31_net_1by2} and ~\ref{fig: M31_net_1by3}. }
           \label{fig: cor_cluster1}
-        \end{figure}
+        \end{figure*}
         
         %%% what regions' version shows and how it compares with the other one:
         In Fig.~\ref{fig: cor_all}, which shows the Pearson correlation coefficients from data in all 10 regions, all the PAH features are highly correlated with each other. 
@@ -145,9 +170,8 @@
         
         
        Regardless of the fact that some of the (anti)-correlations in Fig.~\ref{fig: cor_cluster1} might have physical meaning, we have to mention that we only used 6 regions to calculate these correlation coefficients.
-       The number of data points is not high enough to yield a strong conclusion about PAH properties in M31.%%% it doesn't sound right:((
-        However, we can conclude that since the correlation coefficients derived from the clustered data (Fig.~\ref{fig: cor_cluster1}) differ from the correlation coefficients derived from the data from the all regions (Fig.~\ref{fig: cor_all}), the SOM separated a hidden cluster of the data which has different properties. %%Again eh!
-        
+       The number of data points is not high enough to yield a strong conclusion about PAH properties in M31.
+        However, we can conclude that since the correlation coefficients derived from the clustered data (Fig.~\ref{fig: cor_cluster1}) differ from the correlation coefficients derived from the data from the all regions (Fig.~\ref{fig: cor_all}), the SOM separated a hidden cluster of the data which has different properties.
         
         
         

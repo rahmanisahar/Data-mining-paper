@@ -11,11 +11,12 @@
     In 2D networks, each neuron has two to six neighbours, which allows them to to capture a complete picture of the complicated relations in the input data.
     Accordingly, we created $10\times10$ 2D networks to study the data in detail.
     As mentioned in previous sections, the size of SOMs are arbitrary and must be decided by users based on their goals for use of the SOM.
+    
     In this section we chose $10\times10$ size despite knowing, from the size of our input data, that most of the neurons would be empty.
     Using 2D networks, we are mostly interested in the ability of the SOMs to show the underlying structure of the data rather than its clustering features.
-    \import{../sections/image_texts/}{all.tex}
     Fig.~\ref{fig: all_derived_ones} shows the 2D SOM of the M31 data.
     Similar to Fig.~\ref{fig: M31_net_1by14}, all the 10 regions are completely separated from each other in Fig.~\ref{fig: all_derived_ones}.
+    \import{../sections/image_texts/}{all.tex}
     
     Regions 4 and 7 are in the top left of Fig.~\ref{fig: all_derived_ones} with a very bright colour between their neurons, indicating that these two regions are very similar.
     Considering the position of these two regions in M31 (both right on the edge of the star forming rings in the galaxy), similarity of these two regions was predictable.
@@ -47,15 +48,15 @@
             This indicates that there is more similarity between the PAH features over all 10 regions than between the other input data.
             
             We increased the dimension of input data in Fig.~\ref{fig: only_pahs} (PAH only data) gradually, by adding other quantities to the input data. 
-            The order in which data were added is the same as the order in Fig.~\ref{fig: cor_all}, i.e. the SOM in Fig~\ref{fig: inc_D_col3s}a was created from PAH and H$\alpha$ emission as input data, the SOM in Fig~\ref{fig: inc_D_col3s}b created from PAHs, H$\alpha$ emission and [\sii] continuum, and so on. 
+            The order in which data were added is the same as the order in Fig.~\ref{fig: cor_all}, i.e. the SOM in Fig~\ref{fig: col3and11_dist} was created from PAH and H$\alpha$ emission as input data, the SOM in Fig~\ref{fig: col3and12_dist} created from PAHs, H$\alpha$ emission and \sii~ continuum, and so on. 
             \import{../sections/image_texts/}{col3byall.tex}
             
             The SOM algorithm assigns a random weight to each network that causes the overall position of regions in networks (even with the same input data) to change in each run of the algorithm.
             However, the position of each region relative to other regions changes dramatically only when the new sets of input data are given to the algorithm (assuming all the initial values for the run are unchanged).
-            In all SOMs in Fig~\ref{fig: inc_D_col3s}, region 10 is located in the corner of the SOMs, but in  Figs~\ref{fig: inc_D_col3s}a,~\ref{fig: inc_D_col3s}d,~\ref{fig: inc_D_col3s}g,~\ref{fig: inc_D_col3s}k, and ~\ref{fig: inc_D_col3s}l, it is placed in the left side of the SOMs and in the others it is in the right side of the networks.
+            In all SOMs in Fig~\ref{fig: inc_D_col3s}, region 10 is located in the corner of the SOMs, but in  Figs~\ref{fig: col3and11_dist},~\ref{fig: col3and14_dist},~\ref{fig: col3and17_dist},~\ref{fig: col3and21_dist}, and ~\ref{fig: col3and22_dist}, it is placed in the left side of the SOMs and in the others it is in the right side of the networks.
             In our discussion on differences between networks, we do not address the changes in the network due to initialization of the SOM algorithm and only consider the effect of changing the input data.
             
-            Comparing Figs.~\ref{fig: inc_D_col3s}a to ~\ref{fig: inc_D_col3s}o shows that adding \halpha~emission data to PAH features causes regions 9 and 10 become isolated. 
+            Comparing Figs.~\ref{fig: col3and11_dist} to ~\ref{fig: col3and25_dist} shows that adding \halpha~emission data to PAH features causes regions 9 and 10 become isolated. 
             Increasing the dimension of the input data makes region 10 more isolated.
             The relative positions of regions 4 and 7 stay the same with increasing the dimensions of the input data. 
             Adding SPIRE 350, 500~$\mu$m emission and L$_{\rm dust}$ does not have any obvious effect on the networks.
