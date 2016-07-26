@@ -1,0 +1,69 @@
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%Intro
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+\section{Introduction} 
+% Nearby galaxies and their importance 
+Nearby galaxies play an important role in our understanding of galaxies' formation and evolution.
+Nearby galaxies are defined as those close enough that we are able to observe their structure and composition in detail.
+As a result, many studies have been devoted to finding relations between physical properties of galaxies, such as morphology, star formation rate (SFR), stellar mass, metallicity, and amount of gas, both for spatially-resolved regions and galaxies as a whole~\citep[e.g.][]{Wong13,Leroy08}, and many others use these results in analyzing observations of high-redshift galaxies~\citep[e.g.][]{Freundlich13,Walch11}.
+Surveys such as KINGFISH~\citep{Kennicutt11} and THINGS~\citep{Walter08} have made observations of nearby galaxies in various wavelengths and from these data we can measure physical properties such as stellar mass, star formation rate (SFR), dust mass, and gas mass~\citep[e.g.][]{Eskew12,Dale09,Calzetti07}.
+
+% A little bit about M31 and previous studies in M31.
+The Andromeda galaxy (M31), at a distance of $\sim$~0.78~Mpc, is the closest spiral galaxy to the Milky Way~\citep{McConnachie05}.
+Images of this galaxy provide us with a detailed view of the inside of a spiral galaxy as seen from an external perspective.
+M31 has been observed by many telescopes including the {\textit {Hubble}}, \Spitzer and \Herschel space telescopes. %Els: Use the correct names for telescopes?
+\cite{Barmby06} used data from the \Spitzer Infrared Array Camera \citep[IRAC;][]{Fazio04} to show the spatial distribution of Polycyclic Aromatic Hydrocarbons (PAHs) in the interstellar medium (ISM) of M31.
+Using data from the Multiband Imaging Photometer for Spitzer (MIPS) instrument, \cite{Gordon06} studied the morphology of M31's dust.
+\cite{Azimlu11} and \cite{Sanders12} catalogued and studied \hii~regions of M31.
+\cite{Draine14, Mattsson14, Viaene14, Smith12} and~\cite{Fritz12} used \Herschel data to study dust in the ISM of the galaxy.
+Properties of the current stars in the galaxy were studied by many groups~\citep[e.g.][and references therein]{Tamm12,Dalcanton12,Massey07}.
+\cite{Rahmani16, Ford13} and \cite{Tabatabaei10} measured the spatially-resolved SFR in M31 in order to study star formation laws, and~\cite{Dim15} and \cite{Kapala15} used infrared spectroscopy to study PAHs and atomic and molecular line emission in the ISM.
+
+Although all these studies measured some properties of M31, or answered specific scientific questions about this galaxy, we still do not have a complete picture of underlying processes in the galaxy.
+What is the correlation between PAHs and SFR, dust mass, and gas mass in M31? 
+Are PAH features in M31 similar or they can be divided into various groups? If so, what are the properties of each group?
+Does the intensity of PAH emission depend on location or global galaxy properties? 
+The properties of M31 that derived in various studies and observational data of this galaxy can be used for a knowledge discovery and data mining study.
+The Pinwheel Galaxy (M101), with distance of 6.7~Mpc~\citep{Freedman01}, is another nearby galaxy that has been well-observed and studied~\citep[e.g. ][and references therein]{Kennicutt11,Dale09, Leroy08, Gordon08}.
+M101 is a large spiral galaxy with several \hii~regions and a large metallicity gradient from centre to outskirts~\citep{Kennicutt03}.
+Since the observational data from M31 and M101 are similar, M101 is a suitable addition to M31 data for a data mining study. 
+Knowledge discovery and data mining methods are designed to extract hidden information from data and have been tested in many astronomical studies~\citep[e.g.][and references therein]{Ball10}.
+However, this study is the first to use a data mining method on observations of nearby galaxies.
+
+% data mining and clustering in general; when we have so many data and we want to map them
+\cite{Ball10} gave an extensive review of data mining and machine learning algorithms and their usage in astronomy.
+A data mining algorithm learns about data from training, which can be supervised or unsupervised.
+Supervised training refers to methods that use examples of the desired output to learn about input data; these are valuable tools for classifying data with known target values.
+Unsupervised methods train without any prior knowledge of output results: 
+they work solely based on the underlying structure of the input data.   
+The unsupervised methods are very useful tools in knowledge discovery studies, where we have limited pre-expectations for the data or when we want to make sure that we did not miss any valuable information in previous studies.
+
+The purpose of the present work is to use M31 observations to provide new insights into nearby galaxies, with a focus on relations between PAHs and other properties of the galaxy,
+as there are few studies on relations between properties of M31 with its PAH features.
+\cite{Cesarsky98} studied PAH spectra observed by ISOCAM spectro-imaging in four regions in M31 and found that PAH features in M31 differ from those in other galaxies in having weak or no $6.2 - 8.6$~$\mu$m emission with enhanced 11.2~$\mu$m emission. 
+However,~\cite{Dim15} using {\it Spitzer}/Infrared Spectrograph~\citep[IRS;][]{Houck04b} observations, found that the PAH spectra of M31 have the same features as the spectra of other nearby star-forming galaxies.
+Those authors re-evaluated the ISOCAM data to compare them to IRS data and found that the earlier results were likely due to incorrect background subtraction.
+Using IRAC imaging observations,~\cite{Barmby06} found good agreement between the M31 SFR derived using observed 8~$\mu$m luminosity with other 
+star formation indicators such as \halpha and far infrared luminosity.
+\cite{Draine14} found that the PAH abundance in M31 is almost constant up to a galactocentric radius of $\sim 20$~kpc.
+With data mining techniques we address the question of whether,
+compared to other galaxies, PAH features in M31 are unique as~\cite{Cesarsky98} claimed, or  are normal as ~\cite{Dim15} and \cite{Draine14} concluded.
+
+
+%this project 1 M31 and its extensive data we do not have any SOM in nearby galaxies
+In this project we apply the self-organizing map algorithm (SOM) to M31 data, training 1D and 2D networks.
+Using networks with fewer neurons, we study the properties of the clusters and investigate relations between PAH features and other quantities in M31.
+We create 2D SOMs from subsets of the data as well as all available data, which helps us to understand the effect on each input on the position of the clusters in the SOM.
+We apply the 2D trained networks to the M101 data to study whether they have similar properties to M31 ones.
+If our hypothesis is correct, we should be able to see that regions in M31 and M101 with the same positions in the SOM have the same properties.
+
+
+We describe the SOM method in $\S$~\ref{sec: method_SOMN}. 
+In $\S$~\ref{Sec: data_SOMN}, we present the observational data from M31 and M101 that we use in this study.
+The results of the 1D SOM networks and the study of PAHs in M31 are presented in $\S$~\ref{Sec: 1d_cluster}.
+In $\S$~\ref{sec: 2d_cluster}, we present the results of 2D SOM networks and their use in extracting information about other galaxies.
+In $\S$~\ref{sec: summary}, we summarize our results and discuss potential future work in this subject.
